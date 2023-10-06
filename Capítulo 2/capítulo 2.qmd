@@ -40,7 +40,7 @@ Os dados são abertos e gerenciados pela Secretaria Especial da Receita Federal 
 
 A tabela estabelecimentos é formada pelo maior número de variáveis, sendo: CNPJ, nome fantasia, situação cadastral da empresa, data de início de atividade, CNAE, endereço do negócio, município, Unidade de Federação, dentre outras. Nesta tabela foram filtrados os seguintes registros: empresas ativas; unidade da federação Goiás; e tipo de estabelecimento (foram mantidas apenas as matrizes).
 
-Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 registros no estado de Goiás e que se encontram ativas. Existe uma maior concentração de empresas que estão classificadas na natureza jurídica microempresa (código 213-5). O tratamento de Microempresas será realizado de modo distinto das demais naturezas jurídicas, pois, como esta não contém sócios, não é necessário acessar esta tabela.  
+Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 registros no estado de Goiás e que se encontram ativas. Existe uma maior concentração de empresas que estão classificadas na natureza jurídica microempresa (código 213-5). O tratamento de Microempresas será realizado de modo distinto das demais naturezas jurídicas, pois, como esta não contém sócios, não é necessário acessar a tabela `socios`.   
 
 #### Tratamento Microempresas 
 
