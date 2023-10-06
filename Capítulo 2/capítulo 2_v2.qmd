@@ -1,0 +1,350 @@
+---
+title: "capítulo2"
+format: html
+editor: visual
+---
+
+## Método
+
+O objetivo do presente documento é narrar os procedimentos metodológicos adotados neste estudo, bem como os scripts empregados para as análises.
+
+### Leitura dos dados
+
+Os dados foram lidos usando o pacote `fread`. Este pacote tem um desempenho otimizado para leitura de grandes volumes de dados. Além disso, pode ser usado o argumento `select` para ler apenas as variáveis de interesse.
+
+A leitura dos dados foi feita em um arquivo separado e pode ser acessado aqui. Partiremos diretamente para o tratamento.
+
+### Preparando o ambiente
+
+Carregando os pacotes necessários para as análises.
+
+```{r}
+#| warning: false
+
+library(tidyverse)
+library(readxl)
+library(data.table)
+library(genderBR)
+
+```
+
+### Tratamento dos dados
+
+A Receita Federal do Brasil (RFB) contém múltiplas tabelas com registros de dados das empresas, para realização dessa pesquisa, utilizamos as seguintes tabelas:
+
+-   estabelecimentos
+-   empresas
+-   sócios
+
+Os dados são abertos e gerenciados pela Secretaria Especial da Receita Federal do Brasil (RFB) - e podem ser [acessados aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj). A última atualização foi em 25/09/2023 e foi usada neste relatório.
+
+A tabela estabelecimentos é formada pelo maior número de variáveis, sendo: CNPJ, nome fantasia, situação cadastral da empresa, data de início de atividade, CNAE, endereço do negócio, município, Unidade de Federação, dentre outras. Nesta tabela foram filtrados os seguintes registros: empresas ativas; unidade da federação Goiás; e tipo de estabelecimento (foram mantidas apenas as matrizes).
+
+Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 registros no estado de Goiás e que se encontram ativas. Existe uma maior concentração de empresas que estão classificadas na natureza jurídica microempresa (código 213-5). O tratamento de Microempresas será realizado de modo distinto das demais naturezas jurídicas, pois, como esta não contém sócios, não é necessário acessar a tabela `socios`.
+
+#### Tratamento Microempresas
+
+Vamos fazer a leitura das bases necessárias. Fazemos a leitura das bases `empresa`, pois a coluna `razão social` contém o nome do empreendedor e é por meio desta variável que será possível definir o gênero, por meio da função `get_gender`.
+
+```{r}
+
+municipios_serpro <- read_excel("dados/municipios_serpro.xlsx") |> 
+  filter(UF == "GO")
+
+municipios_serpro$codigo_arrumado <- as.integer(municipios_serpro$codigo_arrumado)
+
+estabelecimentos_ativos_go <- fread("dados/estabelecimentos_ativos_go.csv")
+
+microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/microempresas.csv", 
+                       select = c(2, 3, 4))
+
+hierarquia_municipios <- read_excel("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Municipios/hierarquia_municipios.xlsx")
+
+
+```
+
+A tabela estabelecimentos contém os recortes que fizemos anteriormente - apenas registros de empreendimentos goianos, do tipo matriz e que se encontram ativas - e as tabelas de empresa contém a razão social. O bloco de código abaixo serve para juntar as duas bases: estabelecimentos e microempresas.
+
+```{r}
+
+me_ativas <- estabelecimentos_ativos_go |> 
+                  left_join(microempresas, 
+                            by = c("cnpj_basico"))
+
+```
+
+Algumas das razões sociais possuem alguns números, que atrapalhavam o algoritmo de classificação do gênero. Foi necessário fazer um tratamento textual para excluir caracteres que atrapalhassem a classificação, conforme o script abaixo.
+
+```{r}
+
+me_ativas_tratado <- me_ativas |> 
+                      mutate(razao_social_t = gsub('[[:digit:]]+', '', razao_social)) |> 
+                      mutate(razao_social_t = gsub('\\.', '', razao_social_t)) |> 
+                      mutate(razao_social_t = str_trim(razao_social_t)) |> 
+                      mutate(genero = get_gender(razao_social_t)) |> 
+                      filter(nat_juridica == 2135) 
+
+
+```
+
+O próximo passo consistiu em fazer uma distribuição do número de empreendedores por municípios.
+
+```{r}
+
+distribuicao_municipios <- 
+  me_ativas_tratado |>
+  group_by(uf, municipio, genero) |> 
+  count() |> 
+  filter(genero != "NA") |> 
+  inner_join(municipios_serpro,
+            by = c("municipio"="codigo_arrumado")) |> 
+  mutate(tipo = "microempresa") |> 
+  select(-Codigo_TOM_SERPRO)
+
+DT::datatable(distribuicao_municipios)
+
+
+```
+
+Em sequência, o número de empreendedores ao longo do tempo.
+
+```{r}
+
+
+dist_me_tempo <- me_ativas_tratado |> 
+                        mutate(ano = as.character(data_inicio_atividade)) |> 
+                        mutate(ano = substr(ano, 1, 4)) |> 
+                        filter(genero != "NA") |> 
+                        group_by(ano, genero) |> 
+                        count() |> 
+                        filter(ano > 1979)
+
+dist_me_tempo |>
+  filter(ano > 2000) |> 
+  ggplot(aes(x = ano, y = n, fill = genero)) + 
+  geom_col(position = "dodge") + theme_minimal() + 
+  scale_x_discrete(breaks = seq(1980, 2023, 3))
+
+
+```
+
+Também vamos trazer a distribuição de microempresas por sexo e o cadastro nacional de atividade empresarial (CNAE).
+
+```{r}
+
+cnae_go <- me_ativas_tratado |> 
+  group_by(cnae, genero) |> 
+  count()
+
+DT::datatable(cnae_go)
+
+```
+
+Para os paineis, vamos trabalhar com mais duas desagregações:
+
+-   evolução do empreendeorismo por sexo em Goiás
+
+```{r}
+
+
+
+
+
+
+
+
+```
+
+#### Tratamento das outras natureza juridicas
+
+Para esse tramaneto, além da base `empresa`, vamos precisar da base `socio`. O intuito é identificar também os nomes dos socios para definir o gênero, por meio da função `get_gender`, como foi com as microempresas.
+
+```{r}
+
+
+nao_microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/nao_microempresas.csv",
+                           select = c(2, 3, 4))
+
+socios <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Socios/socios.csv")
+
+
+```
+
+Vamos utilizar novamente a tabela estabelecimentos e as tabelas de empresa para trazer as demais naturezas juridicas, mas dessa, vez, em conjunto com a tabela de socio para agregar as informações desses socios. Dessa forma, o bloco de código abaixo serve para juntar as três bases: estabelecimentos, não_microempresas e socios.
+
+```{r}
+
+nao_me_ativas_go <- 
+  estabelecimentos_ativos_go |> 
+  left_join(nao_microempresas, by = c("cnpj_basico")) |> 
+  left_join(socios, by = c("cnpj_basico"))
+
+
+```
+
+O próximo bloco de códigos serve para filtar apenas as empresas que não são classificadas como microempresas. Para isso, criamos uma variaveis com todas as outras naturezas juridicas e filtramos essas naturezas da base gerada no bloco anterior.
+
+```{r}
+
+nao_me <- 
+  c("2046", "2054", "2062", "2076", 
+  "2089", "2097", "2100", "2119", 
+  "2127", "2143", "2151", "2160", 
+  "2186", "2224", "2232", "2240", 
+  "2259", "2267", "2283", "2291", 
+  "2305", "2313", "2321", "2330", 
+  "2992", "4014", "4022", "4030", 
+  "4049", "4080", "4081", "4111", 
+  "4120")
+
+nao_me_gender <- 
+  nao_me_ativas_go |> 
+  filter(nat_juridica %in% nao_me) 
+
+
+```
+
+O passo seguinte, consiste em contar a quantidade de empresas, agregando as variáveis 'cnpj_basico' e 'nome_fantasia' para não gerar dupla contagem. Seguida pela identifcação dos socios que participavam da empresa no ano em que ela foi fundada, pois os socios que entraram depois na sociedade não serão contabilizados.
+
+```{r}
+
+nao_me_gender |> 
+  group_by(cnpj_basico, nome_fantasia) |> 
+  count()
+
+nao_me_gender <- 
+  nao_me_gender |> 
+  filter(data_situacao_atual == entrada_sociedade) 
+
+
+```
+
+Posteriormente,
+
+```{r}
+
+nao_me_gender_2 <- 
+  nao_me_gender |> 
+  distinct(municipio, nome_socio, .keep_all = TRUE)
+
+
+```
+
+Logo depois, realizar a classificação e a contagem por gênero.
+
+```{r}
+
+nao_me_gender_3 <- 
+  nao_me_gender_2 |> 
+    mutate(genero = get_gender(nome_socio))
+
+nao_me_gender_3 |> 
+  group_by(genero) |> 
+  count()
+
+
+```
+
+Da mesma forma que fizemos anteriormente, traçamos também a distribuição do número de empreendedores por sexo e por municípios das empresas que não são classificadas como microempresas.
+
+```{r}
+
+nao_me_completa <- 
+  nao_me_gender_3 |> 
+  group_by(uf, municipio, genero) |>
+  count() |> 
+  filter(genero != "NA") |>
+  inner_join(municipios_serpro,
+             by = c("municipio"="codigo_arrumado")) |> 
+  mutate(tipo = "nao me") |> 
+  select(-Codigo_TOM_SERPRO)
+
+
+```
+
+Em sequência, o número de empreendedores ao longo do tempo, divididos por gênero.
+
+```{r}
+
+
+dist_nao_me_tempo <- 
+  nao_me_gender_3 |> 
+    mutate(ano = as.character(data_inicio_atividade)) |> 
+    mutate(ano = substr(ano, 1, 4)) |> 
+    filter(genero != "NA") |> 
+    group_by(ano, genero) |> 
+    count()
+
+
+```
+
+#### Juntandos as Bases
+
+A próxima etapa consiste em juntar as duas bases, já tratadas.
+
+```{r}
+
+base_completa <- 
+  rbind(distribuicao_municipios,
+      nao_me_completa)
+
+```
+
+Com a base completa, realizamos as seguintes análises:
+
+-   O percentual por gênero dos empreendedores e por município;
+-   A taxa de mulheres empreendedoras (levando em conta a população feminina por município).
+
+```{r}
+
+
+#  O percentual por gênero dos empreendedores e por município
+base_completa1 <- 
+  base_completa |> 
+  group_by(uf, municipio, Municipio, cod_IBGE, genero) |> 
+  summarise(total = sum(n)) |> 
+  mutate(freq = total/sum(total))
+
+
+# A taxa de mulheres empreendedoras (levando em conta a população feminina por município)
+base_completa2 <- 
+  base_completa1 |> 
+    filter(genero == "Female") |> 
+    mutate(cod_IBGE = as.numeric(cod_IBGE)) |> 
+    left_join(pop_FEMININA, by = c("cod_IBGE"="COD_MUN")) |> 
+    mutate(taxa = (total/POPULACAO) * 100) 
+
+```
+
+Em seguida,
+
+```{r}
+
+base_completa3 <- 
+  base_completa2 |> 
+  left_join(hierarquia_municipios, 
+            by = c("cod_IBGE"="cod_municipiodv")) |> 
+  select(cod_IBGE, genero, municipio_pad, genero, total, freq, 
+         POPULACAO, taxa)
+
+
+```
+
+Para a vizualização, construimos uma gráfico da evolução do empreendedorismo por gênero em Goiás (%)
+
+```{r}
+
+
+rbind(dist_me_tempo,
+      dist_nao_me_tempo) |> 
+  group_by(ano, genero) |> 
+  summarise(total = sum(n)) |> 
+  mutate(freq = total/sum(total)) |> 
+  mutate(ano = as.numeric(ano)) |> 
+  filter(ano >= 1980) |> 
+  ggplot(aes(x = ano, y = freq, col = genero)) + 
+  geom_line(size = 1) + theme_minimal() + 
+  scale_x_continuous(breaks = seq(1980, 2023, 3))
+
+
+```
