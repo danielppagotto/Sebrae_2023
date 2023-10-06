@@ -4,23 +4,143 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Método
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+O objetivo do presente documento é narrar os procedimentos metodológicos adotados neste estudo, bem como os scripts empregados para as análises.
 
-## Running Code
+### Leitura dos dados
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Os dados foram lidos usando o pacote `fread`. Este pacote tem um desempenho otimizado para leitura de grandes volumes de dados. Além disso, pode ser usado o argumento `select` para ler apenas as variáveis de interesse.
+
+A leitura dos dados foi feita em um arquivo separado e pode ser acessado aqui. Partiremos diretamente para o tratamento.
+
+### Preparando o ambiente
+
+Carregando os pacotes necessários para as análises.
 
 ```{r}
-1 + 1
+#| warning: false
+
+library(tidyverse)
+library(readxl)
+library(data.table)
+library(genderBR)
+
 ```
 
-You can add options to executable code like this
+### Tratamento dos dados
+
+A Receita Federal do Brasil (RFB) contém múltiplas tabelas com registros de dados das empresas, para realização dessa pesquisa, utilizamos as seguintes tabelas: 
+
+* estabelecimentos 
+* empresas 
+* sócios 
+
+Os dados são abertos e gerenciados pela Secretaria Especial da Receita Federal do Brasil (RFB) - e podem ser [acessados aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj). A última atualização foi em 25/09/2023 e foi usada neste relatório. 
+
+A tabela estabelecimentos é formada pelo maior número de variáveis, sendo: CNPJ, nome fantasia, situação cadastral da empresa, data de início de atividade, CNAE, endereço do negócio, município, Unidade de Federação, dentre outras. Nesta tabela foram filtrados os seguintes registros: empresas ativas; unidade da federação Goiás; e tipo de estabelecimento (foram mantidas apenas as matrizes).
+
+Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 registros no estado de Goiás e que se encontram ativas. Existe uma maior concentração de empresas que estão classificadas na natureza jurídica microempresa (código 213-5). O tratamento de Microempresas será realizado de modo distinto das demais naturezas jurídicas, pois, como esta não contém sócios, não é necessário acessar esta tabela.  
+
+#### Tratamento Microempresas 
+
+Vamos fazer a leitura das bases necessárias. Fazemos a leitura das bases `empresa`, pois a coluna `razão social` contém o nome do empreendedor e é por meio desta variável que será possível definir o gênero, por meio da função `get_gender`.  
 
 ```{r}
-#| echo: false
-2 * 2
+
+municipios_serpro <- read_excel("dados/municipios_serpro.xlsx") |> 
+  filter(UF == "GO")
+
+municipios_serpro$codigo_arrumado <- as.integer(municipios_serpro$codigo_arrumado)
+
+estabelecimentos_ativos_go <- fread("dados/estabelecimentos_ativos_go.csv")
+
+microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/microempresas.csv", 
+                       select = c(2, 3, 4))
+
+hierarquia_municipios <- read_excel("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Municipios/hierarquia_municipios.xlsx")
+
+
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+A tabela estabelecimentos contém os recortes que fizemos anteriormente - apenas registros de empreendimentos goianos, do tipo matriz e que se encontram ativas - e as tabelas de empresa contém a razão social. O bloco de código abaixo serve para juntar as duas bases: estabelecimentos e microempresas.
+
+```{r}
+
+me_ativas <- estabelecimentos_ativos_go |> 
+                  left_join(microempresas, 
+                            by = c("cnpj_basico"))
+
+```
+
+Algumas das razões sociais possuem alguns números, que atrapalhavam o algoritmo de classificação do gênero. Foi necessário fazer um tratamento textual para excluir caracteres que atrapalhassem a classificação, conforme o script abaixo. 
+
+```{r}
+
+me_ativas_tratado <- me_ativas |> 
+                      mutate(razao_social_t = gsub('[[:digit:]]+', '', razao_social)) |> 
+                      mutate(razao_social_t = gsub('\\.', '', razao_social_t)) |> 
+                      mutate(razao_social_t = str_trim(razao_social_t)) |> 
+                      mutate(genero = get_gender(razao_social_t)) |> 
+                      filter(nat_juridica == 2135) 
+
+
+```
+
+O próximo passo consistiu em fazer uma distribuição do número de empreendedores por municípios.  
+
+```{r}
+
+distribuicao_municipios <- 
+  me_ativas_tratado |>
+  group_by(uf, municipio, genero) |> 
+  count() |> 
+  filter(genero != "NA") |> 
+  inner_join(municipios_serpro,
+            by = c("municipio"="codigo_arrumado")) |> 
+  mutate(tipo = "microempresa") |> 
+  select(-Codigo_TOM_SERPRO)
+
+DT::datatable(distribuicao_municipios)
+
+
+```
+
+Em sequência, o número de empreendedores ao longo do tempo. 
+
+```{r}
+
+
+dist_me_tempo <- me_ativas_tratado |> 
+                        mutate(ano = as.character(data_inicio_atividade)) |> 
+                        mutate(ano = substr(ano, 1, 4)) |> 
+                        filter(genero != "NA") |> 
+                        group_by(ano, genero) |> 
+                        count() |> 
+                        filter(ano > 1979)
+
+dist_me_tempo |>
+  filter(ano > 2000) |> 
+  ggplot(aes(x = ano, y = n, fill = genero)) + 
+  geom_col(position = "dodge") + theme_minimal() + 
+  scale_x_discrete(breaks = seq(1980, 2023, 3))
+
+
+```
+
+Também vamos trazer a distribuição de microempresas por sexo e o cadastro nacional de atividade empresarial (CNAE).
+
+```{r}
+
+cnae_go <- me_ativas_tratado |> 
+  group_by(cnae, genero) |> 
+  count()
+
+DT::datatable(cnae_go)
+
+```
+
+
+Para os paineis, vamos trabalhar com mais duas desagregações: 
+
+* evolução de 
