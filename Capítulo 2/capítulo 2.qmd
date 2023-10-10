@@ -30,21 +30,21 @@ library(genderBR)
 
 ### 3. Tratamento dos dados
 
-A Receita Federal do Brasil (RFB) contém múltiplas tabelas com registros de dados das empresas, para realização dessa pesquisa, utilizamos as seguintes tabelas: 
+A Receita Federal do Brasil (RFB) contém múltiplas tabelas com registros de dados das empresas, para realização dessa pesquisa, utilizamos as seguintes tabelas:
 
-* estabelecimentos 
-* empresas 
-* sócios 
+-   estabelecimentos
+-   empresas
+-   sócios
 
-Os dados são abertos e gerenciados pela Secretaria Especial da Receita Federal do Brasil (RFB) - e podem ser [acessados aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj). A última atualização foi em 25/09/2023 e foi usada neste relatório. 
+Os dados são abertos e gerenciados pela Secretaria Especial da Receita Federal do Brasil (RFB) - e podem ser [acessados aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj). A última atualização foi em 25/09/2023 e foi usada neste relatório.
 
 A tabela estabelecimentos é formada pelo maior número de variáveis, sendo: CNPJ, nome fantasia, situação cadastral da empresa, data de início de atividade, CNAE, endereço do negócio, município, Unidade de Federação, dentre outras. Nesta tabela foram filtrados os seguintes registros: empresas ativas; unidade da federação Goiás; e tipo de estabelecimento (foram mantidas apenas as matrizes).
 
-Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 registros no estado de Goiás e que se encontram ativas. Existe uma maior concentração de empresas que estão classificadas na natureza jurídica microempresa (código 213-5). O tratamento de Microempresas será realizado de modo distinto das demais naturezas jurídicas, pois, como esta não contém sócios, não é necessário acessar a tabela `socios`.   
+Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 registros no estado de Goiás e que se encontram ativas. Existe uma maior concentração de empresas que estão classificadas na natureza jurídica microempresa (código 213-5). O tratamento de Microempresas será realizado de modo distinto das demais naturezas jurídicas, pois, como esta não contém sócios, não é necessário acessar a tabela `socios`.
 
-#### 3.1. Tratamento Microempresas 
+#### 3.1. Tratamento Microempresas
 
-Vamos fazer a leitura das bases necessárias. Fazemos a leitura das bases `empresa`, pois a coluna `razão social` contém o nome do empreendedor e é por meio desta variável que será possível definir o gênero, por meio da função `get_gender`.  
+Vamos fazer a leitura das bases necessárias. Fazemos a leitura das bases `empresa`, pois a coluna `razão social` contém o nome do empreendedor e é por meio desta variável que será possível definir o gênero, por meio da função `get_gender`.
 
 ```{r}
 
@@ -75,7 +75,7 @@ me_ativas <- estabelecimentos_ativos_go |>
 
 ```
 
-Algumas das razões sociais possuem alguns números, que atrapalhavam o algoritmo de classificação do gênero. Foi necessário fazer um tratamento textual para excluir caracteres que atrapalhassem a classificação, conforme o script abaixo. 
+Algumas das razões sociais possuem alguns números, que atrapalhavam o algoritmo de classificação do gênero. Foi necessário fazer um tratamento textual para excluir caracteres que atrapalhassem a classificação, conforme o script abaixo.
 
 ```{r}
 
@@ -89,7 +89,7 @@ me_ativas_tratado <- me_ativas |>
 
 ```
 
-O próximo passo consistiu em fazer uma distribuição do número de empreendedores por municípios.  
+O próximo passo consistiu em fazer uma distribuição do número de empreendedores por municípios.
 
 ```{r}
 
@@ -108,7 +108,7 @@ DT::datatable(distribuicao_municipios)
 
 ```
 
-Em sequência, o número de empreendedores ao longo do tempo. 
+Em sequência, o número de empreendedores ao longo do tempo.
 
 ```{r}
 
@@ -146,12 +146,11 @@ DT::datatable(cnae_go)
 
 ```
 
-
 ##### 3.2.1. Demais desagregações
 
-Para os painéis, vamos trabalhar com mais duas desagregações: 
+Para os painéis, vamos trabalhar com mais duas desagregações:
 
-* evolução de empresas por municípios 
+-   evolução de empresas por municípios
 
 ```{r}
 
@@ -171,7 +170,7 @@ evolucao_microempresas_municipio <-
 
 ```
 
-* CNAE por município 
+-   CNAE por município
 
 ```{r}
 
@@ -189,9 +188,6 @@ cnae_me_municipios <-
                         count() |> 
                         mutate(tipo = "microempresas")
 ```
-
-
-
 
 #### 3.2. Tratamento das outras natureza jurídicas
 
@@ -243,7 +239,6 @@ nao_me_gender <-
 
 O passo seguinte consiste na identificação dos sócios que estavam na empresa no momento em que ela foi fundada.
 
-
 ```{r}
 
 nao_me_gender <- 
@@ -252,7 +247,7 @@ nao_me_gender <-
 
 ```
 
-Posteriormente, retiramos empreendedores que tinham mais de uma empresa no mesmo município. Caso contrário, estaríamos fazendo dupla contagem. 
+Posteriormente, retiramos empreendedores que tinham mais de uma empresa no mesmo município. Caso contrário, estaríamos fazendo dupla contagem.
 
 ```{r}
 
@@ -311,7 +306,7 @@ dist_nao_me_tempo <-
 
 ##### 3.2.2. Demais desagregações
 
-* evolução de empresas por municípios 
+-   evolução de empresas por municípios
 
 ```{r}
 
@@ -330,7 +325,7 @@ evolucao_naome_municipios <-
 
 ```
 
-* CNAE por município 
+-   CNAE por município
 
 ```{r}
 
@@ -349,7 +344,6 @@ cnae_naome_municipios <-
                         mutate(tipo = "demais nj")
 
 ```
-
 
 #### 3.3. Juntandos as bases de microempresas e demais naturezas jurídicas
 
@@ -440,7 +434,7 @@ evolucao_municipios <-
 # writexl::write_xlsx(evolucao_municipios, "evolucao_empresas_municipio.xlsx")
 ```
 
-Juntando as bases de CNAE por município 
+Juntando as bases de CNAE por município
 
 ```{r}
 
@@ -452,6 +446,3 @@ cnae_municipios <- rbind(cnae_me_municipios,
 writexl::write_xlsx(cnae_municipios, "cnae_municipios.xlsx")
   
 ```
-
-
-
