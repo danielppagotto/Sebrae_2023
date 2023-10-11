@@ -92,7 +92,6 @@ todos_estabelecimentos_go <-
 
 
 
-
 # write.csv(estabelecimentos_ativos_go,"estabelecimentos_ativos_go.csv")
 
 # Empresas leitura -----
