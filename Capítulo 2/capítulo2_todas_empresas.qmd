@@ -369,7 +369,6 @@ Com a base completa, realizamos as seguintes análises:
 -   O percentual por gênero dos empreendedores e por município;
 -   A taxa de mulheres empreendedoras (levando em conta a população feminina por município).
 
-
 ```{r}
 
 
@@ -380,7 +379,7 @@ base_completa1 <-
   summarise(total = sum(n)) |> 
   mutate(freq = total/sum(total))
 
-writexl::write_xlsx(base_completa1, "todas_empresas_frequencia_masc_fem.xlsx")
+writexl::write_xlsx(base_completa1, "frequencia_masc_fem_todas_empresas.xlsx")
 
 
 # A taxa de mulheres empreendedoras (levando em conta a população feminina por município)
@@ -407,7 +406,6 @@ base_completa3 <-
 
 
 ```
-
 
 Para a vizualização, construimos uma gráfico da evolução do empreendedorismo por gênero em Goiás (%)
 
@@ -444,6 +442,23 @@ writexl::write_xlsx(todas_empresas_evolucao_municipios, "todas_empresas_evolucao
 
 ```
 
+
+
+```{r}
+
+
+taxa_pop_sexo_ano <- 
+    todas_empresas_evolucao_municipios |> 
+    mutate(cod_IBGE = as.numeric(cod_IBGE)) |> 
+    mutate(ano = as.numeric(ano)) |> 
+    mutate(genero = recode(genero, "Female" = "Femenino", "Male" = "Masculino"))
+    left_join(pop_total, by = c("ano"="ANO","cod_IBGE"="COD_MUN")) #|>
+    #group_by(ano, Municipio, cod_IBGE, SEXO, POPULACAO) |> 
+    mutate(taxa = (total/POPULACAO) * 100)
+
+
+```
+
 Em seguida, com a base de evoluções, fizemos a base de taxa de emprendedores por sexo e ano (levando em conta a população de homens e mulheres por município)
 
 ```{r}
@@ -466,7 +481,6 @@ writexl::write_xlsx(taxa_pop_sexo_ano, "taxa_pop_sexo_ano.xlsx")
 
 
 ```
-
 
 Juntando as bases de CNAE por município
 
