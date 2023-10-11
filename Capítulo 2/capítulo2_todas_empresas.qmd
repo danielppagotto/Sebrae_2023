@@ -379,7 +379,7 @@ base_completa1 <-
   summarise(total = sum(n)) |> 
   mutate(freq = total/sum(total))
 
-writexl::write_xlsx(base_completa1, "fre_masc_fem_todas_empresas.xlsx")
+writexl::write_xlsx(base_completa1, "freq_masc_fem_todas_empresas.xlsx")
 
 
 # A taxa de mulheres empreendedoras (levando em conta a população feminina por município)
@@ -435,33 +435,58 @@ Juntando as bases de evolução **por município**
 todas_empresas_evolucao_municipios <- 
   rbind(evolucao_microempresas_municipio,
       evolucao_naome_municipios) |> 
-  group_by(ano, genero, cod_IBGE, Municipio) |> 
-  summarise(total = sum(n))
+  group_by(ano, genero, cod_IBGE, Municipio) |>
+  summarise(total= sum(n))
 
 writexl::write_xlsx(todas_empresas_evolucao_municipios, "todas_empresas_evolucao_municipios.xlsx")
 
+
 ```
 
-Em seguida, com a base de evoluções, fizemos a base de taxa de emprendedores por sexo e ano (levando em conta a população de homens e mulheres por município)
+Em seguida, com a base de evoluções, fizemos a frequencia de emprendedores por sexo e ano e a taxa de emprendedoras por ano (levando em conta a população de mulheres por município).
 
 ```{r}
 
-#A taxa de empreendedores (levando em conta a população de homens e mulheres por município)
+#A frequencia de empreendedores 
+
+freq <- 
+   todas_empresas_evolucao_municipios |>
+   spread(key = genero, value = total)|>
+    mutate(total = Female + Male,
+         prop_female = Female/total,
+         prop_male = Male/total)
+
+writexl::write_xlsx(freq, "freq_sexo_ano_todas_empresas.xlsx")
+
+
+#separando somente a população feminina
 
 
 pop_total <- read_csv("C:/GitHub/Sebrae_2023/Capítulo 2/pop_total.csv")
 
-taxa_pop_sexo_ano <- 
+
+pop_feminina <- pop_total|>
+  group_by(ANO, COD_MUN,SEXO,POPULACAO)|>   
+  filter(SEXO == "Feminino")
+
+writexl::write_xlsx(pop_feminina, "pop_feminina.xlsx")
+
+
+#A taxa de empreendedores 
+
+#OBS: Só tem os dados populacionais até 2021
+
+taxa_pop_ano <- 
     todas_empresas_evolucao_municipios |> 
     mutate(cod_IBGE = as.numeric(cod_IBGE)) |> 
-    mutate(ano = as.numeric(ano)) |> 
-    mutate(genero = recode(genero, "Female" = "Feminino", "Male" = "Masculino")) |>
-    left_join(pop_total, by = c("ano"="ANO","cod_IBGE"="COD_MUN", "genero" = "SEXO")) |>
-    mutate(taxa = (total/POPULACAO) * 100)
+    mutate(ano = as.numeric(ano)) |>
+    filter(genero == "Female")|>
+    left_join(pop_feminina, by = c("ano"="ANO","cod_IBGE"="COD_MUN")) |>
+    mutate(taxa = (total/POPULACAO) * 100) |>
+    select(ano,genero,cod_IBGE,Municipio,total,POPULACAO,taxa)
    
 
-
-writexl::write_xlsx(taxa_pop_sexo_ano, "taxa_pop_sexo_ano_todas_empresas.xlsx")
+writexl::write_xlsx(taxa_pop_ano, "taxa_pop_ano_todas_empresas.xlsx")
 
 
 ```
