@@ -53,11 +53,9 @@ municipios_serpro <- read_excel("dados/municipios_serpro.xlsx") |>
 
 municipios_serpro$codigo_arrumado <- as.integer(municipios_serpro$codigo_arrumado)
 
-<<<<<<< HEAD
 todos_estabelecimentos_go <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Estabelecimentos/pureza_todos_estabelecimentos_go.csv")
-=======
+
 todos_estabelecimentos_go <- fread("dados/todos_estabelecimentos_go.csv")
->>>>>>> f9b58bbe8f8cb692cd01133131f7f7670d232935
 
 microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/microempresas.csv", 
                        select = c(2, 3, 4))
@@ -85,19 +83,16 @@ Algumas das razões sociais possuem alguns números, que atrapalhavam o algoritm
 ```{r}
 
 me_tratado <- me_todas|> 
-<<<<<<< HEAD
               filter(nat_juridica == 2135) |> 
               mutate(razao_social_t = gsub('[[:digit:]]+', '', razao_social)) |> 
               mutate(razao_social_t = gsub('\\.', '', razao_social_t)) |> 
               mutate(razao_social_t = str_trim(razao_social_t)) |> 
-              mutate(genero = get_gender(razao_social_t)) 
-=======
+              mutate(genero = get_gender(razao_social_t)) |> 
               mutate(razao_social_t = gsub('[[:digit:]]+','', razao_social)) |> 
               mutate(razao_social_t = gsub('\\.', '', razao_social_t)) |> 
               mutate(razao_social_t = str_trim(razao_social_t)) |> 
               mutate(genero = get_gender(razao_social_t)) |> 
               filter(nat_juridica == 2135) 
->>>>>>> f9b58bbe8f8cb692cd01133131f7f7670d232935
 
 
 ```
@@ -391,11 +386,9 @@ base_completa1 <-
   summarise(total = sum(n)) |> 
   mutate(freq = total/sum(total))
 
-<<<<<<< HEAD
-=======
-writexl::write_xlsx(base_completa1, "freq_masc_fem_todas_empresas.xlsx")
 
->>>>>>> f9b58bbe8f8cb692cd01133131f7f7670d232935
+#writexl::write_xlsx(base_completa1, "freq_masc_fem_todas_empresas.xlsx")
+
 
 # A taxa de mulheres empreendedoras (levando em conta a população feminina por município)
 base_completa2 <- 
@@ -405,10 +398,7 @@ base_completa2 <-
     left_join(pop_FEMININA, by = c("cod_IBGE"="COD_MUN")) |> 
     mutate(taxa = (total/POPULACAO) * 100) 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f9b58bbe8f8cb692cd01133131f7f7670d232935
 ```
 
 Em seguida,
@@ -453,16 +443,13 @@ Juntando as bases de evolução **por município**
 todas_empresas_evolucao_municipios <- 
   rbind(evolucao_microempresas_municipio,
       evolucao_naome_municipios) |> 
-<<<<<<< HEAD
   group_by(ano, genero, cod_IBGE, Municipio) |> 
   summarise(total = sum(n))
 
-writexl::write_xlsx(todas_empresas_evolucao_municipios, "todas_empresas_evolucao_municipios.xlsx")
-=======
-  group_by(ano, genero, cod_IBGE, Municipio) |>
-  summarise(total= sum(n))
+#writexl::write_xlsx(todas_empresas_evolucao_municipios, "todas_empresas_evolucao_municipios.xlsx")
 
-writexl::write_xlsx(todas_empresas_evolucao_municipios, "todas_empresas_evolucao_municipios.xlsx")
+
+#writexl::write_xlsx(todas_empresas_evolucao_municipios, "todas_empresas_evolucao_municipios.xlsx")
 
 
 ```
@@ -510,10 +497,8 @@ taxa_pop_ano <-
     select(ano,genero,cod_IBGE,Municipio,total,POPULACAO,taxa)
    
 
-writexl::write_xlsx(taxa_pop_ano, "taxa_pop_ano_todas_empresas.xlsx")
+#writexl::write_xlsx(taxa_pop_ano, "taxa_pop_ano_todas_empresas.xlsx")
 
-
->>>>>>> f9b58bbe8f8cb692cd01133131f7f7670d232935
 ```
 
 Juntando as bases de CNAE por município
@@ -525,10 +510,8 @@ cnae_municipios_todas_empresas <- rbind(cnae_me_municipios,
   group_by(genero, cod_IBGE, Municipio, cnae, nm_cnae) |> 
   summarise(total = sum(n))  
 
-<<<<<<< HEAD
-writexl::write_xlsx(cnae_municipios_todas_empresas, "cnae_municipios_todas_empresas.xlsx")
-=======
-writexl::write_xlsx(cnae_municipios_todas_empresas, "cnae_municipios_todas_empr.xlsx")
->>>>>>> f9b58bbe8f8cb692cd01133131f7f7670d232935
-  
+#writexl::write_xlsx(cnae_municipios_todas_empresas, "cnae_municipios_todas_empresas.xlsx")
+
+#writexl::write_xlsx(cnae_municipios_todas_empresas, "cnae_municipios_todas_empr.xlsx")
+
 ```
