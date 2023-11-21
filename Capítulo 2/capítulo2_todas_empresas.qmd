@@ -25,6 +25,7 @@ library(tidyverse)
 library(readxl)
 library(data.table)
 library(genderBR)
+library(vroom)
 
 ```
 
@@ -47,18 +48,21 @@ Após este tratamento inicial na base estabelecimentos, foram mantidos 823.915 r
 Vamos fazer a leitura das bases necessárias. Fazemos a leitura das bases `empresa`, pois a coluna `razão social` contém o nome do empreendedor e é por meio desta variável que será possível definir o gênero, por meio da função `get_gender`.
 
 ```{r}
+#| warning: false
 
 municipios_serpro <- read_excel("dados/municipios_serpro.xlsx") |> 
   filter(UF == "GO")
 
 municipios_serpro$codigo_arrumado <- as.integer(municipios_serpro$codigo_arrumado)
 
-todos_estabelecimentos_go <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Estabelecimentos/pureza_todos_estabelecimentos_go.csv")
+todos_estabelecimentos_go <- vroom("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Estabelecimentos/pureza_todos_estabelecimentos_go.csv", 
+                                   locale = locale(encoding = "UTF-8")) |> 
+                             select(-`...1`)
 
-todos_estabelecimentos_go <- fread("dados/todos_estabelecimentos_go.csv")
+#todos_estabelecimentos_go <- fread("dados/todos_estabelecimentos_go.csv")
 
 microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/microempresas.csv", 
-                       select = c(2, 3, 4))
+                       select = c(2, 3, 4), encoding = "Latin-1")
 
 hierarquia_municipios <- read_excel("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Municipios/hierarquia_municipios.xlsx")
 
@@ -84,12 +88,16 @@ Algumas das razões sociais possuem alguns números, que atrapalhavam o algoritm
 
 me_tratado <- me_todas|> 
               filter(nat_juridica == 2135) |> 
-              mutate(razao_social_t = gsub('[[:digit:]]+', '', razao_social)) |> 
-              mutate(razao_social_t = gsub('\\.', '', razao_social_t)) |> 
+              mutate(razao_social_t = gsub('[[:digit:]]+', '', 
+                                           razao_social)) |> 
+              mutate(razao_social_t = gsub('\\.', '', 
+                                           razao_social_t)) |> 
               mutate(razao_social_t = str_trim(razao_social_t)) |> 
               mutate(genero = get_gender(razao_social_t)) |> 
-              mutate(razao_social_t = gsub('[[:digit:]]+','', razao_social)) |> 
-              mutate(razao_social_t = gsub('\\.', '', razao_social_t)) |> 
+              mutate(razao_social_t = gsub('[[:digit:]]+','', 
+                                           razao_social)) |> 
+              mutate(razao_social_t = gsub('\\.', '', 
+                                           razao_social_t)) |> 
               mutate(razao_social_t = str_trim(razao_social_t)) |> 
               mutate(genero = get_gender(razao_social_t)) |> 
               filter(nat_juridica == 2135) 
@@ -144,13 +152,13 @@ Também vamos trazer a distribuição de microempresas por sexo e o cadastro nac
 
 cnae$cod_cnae <- as.integer(cnae$cod_cnae)
 
-cnae_go <- me_tratado |> 
+cnae_me_go <- me_tratado |> 
   left_join(cnae, by = c("cnae"="cod_cnae")) |> 
   group_by(cnae, nm_cnae, genero) |> 
   filter(genero != "NA") |> 
   count()
 
-DT::datatable(cnae_go)
+DT::datatable(cnae_me_go)
 
 ```
 
@@ -380,6 +388,7 @@ Com a base completa, realizamos as seguintes análises:
 
 
 #  O percentual por gênero dos empreendedores e por município
+
 base_completa1 <- 
   base_completa |> 
   group_by(uf, municipio, Municipio, cod_IBGE, genero) |> 
@@ -391,6 +400,7 @@ base_completa1 <-
 
 
 # A taxa de mulheres empreendedoras (levando em conta a população feminina por município)
+
 base_completa2 <- 
   base_completa1 |> 
     filter(genero == "Female") |> 
@@ -412,6 +422,7 @@ base_completa3 <-
   select(cod_IBGE, genero, municipio_pad, genero, total, freq, 
          POPULACAO, taxa)
 
+# writexl::write_xlsx(base_completa3, "percentual_taxa.xlsx")
 
 ```
 
@@ -419,13 +430,15 @@ Para a vizualização, construimos uma gráfico da evolução do empreendedorism
 
 ```{r}
 
-
-rbind(dist_me_tempo,
+proporcoes_ano <- 
+  rbind(dist_me_tempo,
       dist_nao_me_tempo) |> 
   group_by(ano, genero) |> 
   summarise(total = sum(n)) |> 
   mutate(freq = total/sum(total)) |> 
-  mutate(ano = as.numeric(ano)) |> 
+  mutate(ano = as.numeric(ano))
+
+proporcoes_ano |> 
   filter(ano >= 1980) |> 
   ggplot(aes(x = ano, y = freq, col = genero)) + 
   geom_line(size = 1) + theme_minimal() + 
@@ -467,7 +480,7 @@ freq <-
          prop_female = Female/total,
          prop_male = Male/total)
 
-writexl::write_xlsx(freq, "freq_sexo_ano_todas_empresas.xlsx")
+#writexl::write_xlsx(freq, "freq_sexo_ano_todas_empresas.xlsx")
 
 
 #separando somente a população feminina
@@ -480,7 +493,7 @@ pop_feminina <- pop_total|>
   group_by(ANO, COD_MUN,SEXO,POPULACAO)|>   
   filter(SEXO == "Feminino")
 
-writexl::write_xlsx(pop_feminina, "pop_feminina.xlsx")
+#writexl::write_xlsx(pop_feminina, "pop_feminina.xlsx")
 
 
 #A taxa de empreendedores 
@@ -505,13 +518,13 @@ Juntando as bases de CNAE por município
 
 ```{r}
 
-cnae_municipios_todas_empresas <- rbind(cnae_me_municipios,
-      cnae_naome_municipios) |> 
+cnae_municipios_todas_empresas <- 
+  rbind(cnae_me_municipios,
+        cnae_naome_municipios) |> 
   group_by(genero, cod_IBGE, Municipio, cnae, nm_cnae) |> 
   summarise(total = sum(n))  
 
 #writexl::write_xlsx(cnae_municipios_todas_empresas, "cnae_municipios_todas_empresas.xlsx")
 
-#writexl::write_xlsx(cnae_municipios_todas_empresas, "cnae_municipios_todas_empr.xlsx")
 
 ```

@@ -378,7 +378,7 @@ base_completa3 <-
   select(cod_IBGE, genero, municipio_pad, genero, total, freq, 
          POPULACAO, taxa)
 
-writexl::write_xlsx(base_completa3, "analises_RFB_2023.xlsx")
+#writexl::write_xlsx(base_completa3, "analises_RFB_2023.xlsx")
 
 # grafico evolucao --------------------------------------------------------
 
