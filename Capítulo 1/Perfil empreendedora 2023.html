@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Perfil_empreendedora_2023</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Perfil empreendedora 2023_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Perfil empreendedora 2023_files/libs/quarto-html/quarto.js"></script>
+<script src="Perfil empreendedora 2023_files/libs/quarto-html/popper.min.js"></script>
+<script src="Perfil empreendedora 2023_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Perfil empreendedora 2023_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Perfil empreendedora 2023_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Perfil empreendedora 2023_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Perfil empreendedora 2023_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Perfil empreendedora 2023_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Perfil empreendedora 2023_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="Perfil empreendedora 2023_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="Perfil empreendedora 2023_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="Perfil empreendedora 2023_files/libs/datatables-binding-0.30/datatables.js"></script>
+<script src="Perfil empreendedora 2023_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="Perfil empreendedora 2023_files/libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="Perfil empreendedora 2023_files/libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="Perfil empreendedora 2023_files/libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="Perfil empreendedora 2023_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="Perfil empreendedora 2023_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Perfil_empreendedora_2023</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="perfil-da-empreendedora-em-goiás" class="level1">
+<h1>Perfil da empreendedora em Goiás</h1>
+<p>As análises a seguir apresentam os códigos que acessam dados da PNADc para traçar o perfil da empreendedora no estado de Goiás, que estará em um painel.</p>
+<p>Para o presente recorte, filtramos os seguintes perfis (VD4007), que, de acordo com a PNADc e estudos prévios, podem se enquadrar como empreendedores:</p>
+<ul>
+<li>Trabalhador por conta própria:</li>
+<li>Empregador</li>
+</ul>
+<p>Ademais, avaliamos o perfil dos empreendedores considerando as seguintes variáveis:</p>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variável</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>UF</td>
+<td>Unidade da Federação</td>
+</tr>
+<tr class="even">
+<td>VD2007</td>
+<td>Sexo</td>
+</tr>
+<tr class="odd">
+<td>V2009</td>
+<td>Idade</td>
+</tr>
+<tr class="even">
+<td>VD4007</td>
+<td>Identificação do perfil ocupacional</td>
+</tr>
+<tr class="odd">
+<td>V1023</td>
+<td>Localização (capital, RM, RIDE, demais municípios do estado)</td>
+</tr>
+<tr class="even">
+<td>V4019</td>
+<td>Formalização</td>
+</tr>
+<tr class="odd">
+<td>VD3004</td>
+<td>Escolaridade</td>
+</tr>
+<tr class="even">
+<td>VD4010</td>
+<td>Setor de atuação</td>
+</tr>
+</tbody>
+</table>
+<section id="carregando-os-pacotes" class="level2">
+<h2 class="anchored" data-anchor-id="carregando-os-pacotes">Carregando os pacotes</h2>
+<p>Acessando os pacotes necessários para as análises.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: FALSE</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PNADcIBGE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'PNADcIBGE' was built under R version 4.3.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'survey' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Carregando pacotes exigidos: grid</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Carregando pacotes exigidos: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Carregando pacotes exigidos: survival</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'survey'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    dotchart</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ tidyr::expand() masks Matrix::expand()
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+✖ tidyr::pack()   masks Matrix::pack()
+✖ tidyr::unpack() masks Matrix::unpack()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(srvyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'srvyr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'srvyr'
+
+The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+</div>
+</section>
+<section id="carregando-dados" class="level2">
+<h2 class="anchored" data-anchor-id="carregando-dados">Carregando dados</h2>
+<p>Por meio do pacote <code>PNADcIBGE</code>, vamos acessar os dados da PNADc, usando o ano de 2022 como referência, quarto trimestre.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pnad_srv <span class="ot">&lt;-</span> <span class="fu">get_pnadc</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">quarter =</span> <span class="dv">4</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(pnad_srv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Transformando o objeto survey.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pnad_srvyr <span class="ot">&lt;-</span> <span class="fu">as_survey</span>(pnad_srv)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(pnad_srvyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "tbl_svy"       "svyrep.design"</code></pre>
+</div>
+</div>
+</section>
+<section id="análises" class="level2">
+<h2 class="anchored" data-anchor-id="análises">Análises</h2>
+<p>A seguir temos duas análises contendo interações, sendo que a primeira não possui nenhum tratamento sobre as categorias das análises, enquanto a segunda tem tratamentos.</p>
+<section id="análise-1---sem-desagregações" class="level3">
+<h3 class="anchored" data-anchor-id="análise-1---sem-desagregações">Análise 1 - sem desagregações</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  pnad_srvyr <span class="sc">|&gt;</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(UF <span class="sc">==</span> <span class="st">"Goiás"</span> <span class="sc">&amp;</span> V2007 <span class="sc">==</span> <span class="st">"Mulher"</span> <span class="sc">&amp;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        (VD4007 <span class="sc">==</span> <span class="st">"Empregador"</span> <span class="sc">|</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>         VD4007 <span class="sc">==</span> <span class="st">"Conta própria"</span>) <span class="sc">&amp;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>         VD2006 <span class="sc">!=</span> <span class="st">"14 a 19 anos"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VD4007, V1023, V4019, VD3004, </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>           VD4010) <span class="sc">|&gt;</span> </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">contagem =</span> <span class="fu">survey_total</span>(),</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">renda_media =</span> <span class="fu">survey_mean</span>(VD4016, <span class="at">na.rm =</span> T),</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">idade_media =</span> <span class="fu">survey_mean</span>(V2009, <span class="at">na.rm =</span> T))</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(resultados)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-93c3476d2c8d3b23f856" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-93c3476d2c8d3b23f856">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225","226","227","228","229","230","231","232","233","234","235","236","237","238","239","240","241","242","243","244","245","246","247","248","249","250","251","252","253","254","255","256","257"],["Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Empregador","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria","Conta própria"],["Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Capital","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RM (Região Metropolitana, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da RIDE (Região Integrada de Desenvolvimento Econômico, excluindo a capital)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)","Resto da UF  (Unidade da Federação, excluindo a região metropolitana e a RIDE)"],["Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Não","Não","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Sim","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não","Não"],["Sem instrução e menos de 1 ano de estudo","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Fundamental completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Sem instrução e menos de 1 ano de estudo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Sem instrução e menos de 1 ano de estudo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Sem instrução e menos de 1 ano de estudo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Sem instrução e menos de 1 ano de estudo","Sem instrução e menos de 1 ano de estudo","Sem instrução e menos de 1 ano de estudo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Sem instrução e menos de 1 ano de estudo","Sem instrução e menos de 1 ano de estudo","Sem instrução e menos de 1 ano de estudo","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental incompleto ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Fundamental completo ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio incompleto ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Médio completo ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior incompleto ou equivalente","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo","Superior completo"],["Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Comércio, reparação de veículos automotores e motocicletas","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Agricultura, pecuária, produção florestal, pesca e aquicultura","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Construção","Comércio, reparação de veículos automotores e motocicletas","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Alojamento e alimentação ","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Comércio, reparação de veículos automotores e motocicletas","Agricultura, pecuária, produção florestal, pesca e aquicultura","Comércio, reparação de veículos automotores e motocicletas","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Comércio, reparação de veículos automotores e motocicletas","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Educação, saúde humana e serviços sociais","Alojamento e alimentação ","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Alojamento e alimentação ","Comércio, reparação de veículos automotores e motocicletas","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Comércio, reparação de veículos automotores e motocicletas","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Agricultura, pecuária, produção florestal, pesca e aquicultura","Agricultura, pecuária, produção florestal, pesca e aquicultura","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Comércio, reparação de veículos automotores e motocicletas","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Educação, saúde humana e serviços sociais","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Indústria geral","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Indústria geral","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Indústria geral","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Alojamento e alimentação ","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Educação, saúde humana e serviços sociais","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Educação, saúde humana e serviços sociais","Educação, saúde humana e serviços sociais","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Educação, saúde humana e serviços sociais","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Alojamento e alimentação ","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Outros Serviços","Comércio, reparação de veículos automotores e motocicletas","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Outros Serviços","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Transporte, armazenagem e correio ","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços","Transporte, armazenagem e correio ","Alojamento e alimentação ","Educação, saúde humana e serviços sociais","Agricultura, pecuária, produção florestal, pesca e aquicultura","Indústria geral","Comércio, reparação de veículos automotores e motocicletas","Alojamento e alimentação ","Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas","Educação, saúde humana e serviços sociais","Outros Serviços"],[601.26879563,881.6256368300001,353.13224859,616.08993959,280.4173318,1297.78314616,3914.95552937,687.5038711,486.39032404,874.5530546800001,758.22900867,1503.64202553,1091.01723531,605.5230648,2819.92880301,3951.49051324,782.23014429,891.22586911,467.33016571,424.29688031,279.92588618,383.16443143,469.46037726,383.16443143,490.23168535,2509.15187839,2078.77823586,720.69525477,2061.89439879,753.80590362,310.67118542,1975.39968558,541.12554642,446.30465598,567.21843649,651.59365564,347.21602996,1392.31722101,665.42740109,1454.43342628,356.03521335,1090.78387043,4495.75576533,265.99816338,754.29558367,476.94498485,2760.17491953,2125.78028365,574.40723413,9256.173825849999,1600.42942073,1216.84141918,293.95527749,829.95296737,4727.42628223,657.5295715499999,1235.41856179,1425.85492642,1041.92028916,101.49349111,218.28458001,247.3185272,131.67891944,75.30466534999999,527.15354007,796.35338801,348.1756914,183.756395,1018.49803499,2504.7831828,1188.96831176,474.96708829,503.54638531,868.86894631,502.44382469,484.79835589,602.44164043,1285.67521114,464.67778443,741.43881931,1435.21543656,2063.13400076,2872.6121267,794.5483773799999,2173.1182328,1061.32819735,4979.71331117,3764.4498798,1640.07195999,733.76707513,3739.40423693,1676.3250212,2310.80270124,486.42363111,741.82589121,1437.29030476,668.61360009,32.51581975,971.0472167300001,1829.66629655,1913.53217203,457.2704769,3790.64344451,5029.54776625,298.70541603,2505.47089899,998.4481376900001,402.29971737,5207.03237496,764.2542175,316.2390833,336.84112497,1857.7529014,225.45017608,224.42554389,686.3284479199999,257.46909096,1661.03889341,7083.2412572,4889.94362355,1787.39708841,267.25057427,757.19676027,957.15670399,392.49035506,351.7535954,145.58419547,430.39741081,2294.50022403,2524.70208821,761.68993129,1305.20129676,266.28467719,342.00340615,277.42442778,871.03379579,418.88942587,296.27032363,4890.17627649,3391.20399469,961.07850721,1213.46089547,534.03513163,376.11307015,261.01436522,871.4647932300001,1404.72484903,2517.5628565,241.3485953,3284.58068349,2404.2300991,323.15563464,416.29081192,3307.390486,488.59845256,473.63992259,1824.6480668,1247.93499972,170.63499297,789.8801059699999,292.64939266,513.02373361,1134.47519678,253.16413071,563.12638495,1815.94662571,169.70563722,402.83526281,1686.53926903,1278.22738531,623.23249748,296.14137949,963.72506656,124.01477185,338.52325599,1218.19079085,586.69112778,189.29061625,3580.99682335,4157.75643323,608.74987248,89.51413042,86.48657457,181.84753743,2116.47829742,1021.89728106,108.44022187,141.57006974,395.62678342,3829.83259433,2492.57145351,1045.5027573,137.99629401,7757.01152915,763.42231958,68.39764543,499.78495893,584.86170208,1008.02846478,1124.99635011,592.64725034,747.18752149,3299.46172675,958.90880507,2106.14989482,132.40025958,180.28247655,694.8419504,1500.86740042,2344.1218321,4607.4037682,324.28521929,4984.59276923,803.99372307,246.19096615,362.69642302,4488.05087184,689.13995845,2667.52750664,978.72301146,5749.58738684,421.31275041,931.51248957,1056.59995375,1718.24484819,5861.88381661,4182.29095602,3099.90203893,179.43096847,4397.77013767,1276.20795003,2041.3149099,2175.10901764,2550.64327297,877.87303846,1362.11169163,353.12197311,1082.70673913,4813.55402045,711.8456525,4157.60353335,4980.68271328,387.26359824,3111.26908733,701.83006839,877.72110889,10750.95654707,613.25639987,1680.70764843,918.55787649,683.0352311500001,526.98467535,447.04312455,698.07583169,4295.25869545,2759.61203932,1036.20902432],[595.8393165543198,683.2243355594551,354.7766573822036,712.8573158261851,279.3286937399969,851.4755015067151,1394.425985082941,524.0749119343402,516.0000311182549,610.9036090377884,704.841251696242,1191.589249577021,647.3380124310311,451.4311386829753,1107.863902354423,1586.648186378328,629.8093839041478,635.5069229348231,458.2828722033854,427.7990723343496,288.4066531024666,353.6449241930923,336.8028560570657,353.6449241930923,451.5129998825399,1768.886782963762,1637.234990218128,533.9583612608272,1061.799531579091,749.9339947087991,312.789937745869,1884.230129772459,528.0191807946761,474.6643768453974,693.6091043252925,653.3626905361072,356.1955122751488,760.1758197605692,679.6313853542605,1338.656618804559,359.8496589461814,893.7060605264422,2462.606024864855,269.5694318898964,699.3367176499625,514.5084489471606,1385.728151208654,1202.385333821121,592.0897874035912,2989.402488029604,1123.651049591898,866.6733996675338,296.3181951166704,861.5338828755126,2006.682295497824,497.6721459561655,1038.39316316025,1293.962501806012,1057.661890865947,96.3169012910213,216.7765957582952,244.3563595886771,141.7223279550554,77.68851139049468,538.7835587039234,767.1900312310919,349.4450517360528,159.4721935172827,920.7249724046054,1636.407937113006,646.1057455587608,469.033369859246,507.7788171590262,628.6315309332938,492.2725998892373,507.6800082828692,559.3539443567604,1164.987270090469,458.0878416439249,555.4425036688096,931.9034111049533,1093.670169985156,1203.024341341082,551.7696806156798,1048.024570066231,604.8359029656873,1500.959707991984,1518.250322817536,822.8635442760406,551.460534262725,1264.931968914769,907.8706321245945,1052.822838864543,353.2686541661047,490.3507739820234,632.3471905791954,431.1942535651158,30.47705077040107,739.1001047542562,834.6523073896406,832.2326843419411,405.3972619164167,1456.133368171504,1492.968357226867,280.1729328989876,1314.036674785951,715.5429700266253,402.8696918531029,1642.266174600591,444.3165087513952,297.7783236399717,358.6758647413932,847.0635352071363,231.7801580397015,220.8177820694333,504.9407052839439,250.9423179790367,874.7578635013848,1876.23457475185,1734.286301913442,884.2796737930171,282.7142881528742,542.1582964806895,989.3055405631783,411.0454283751375,345.0936686692495,153.6630691423227,374.0083900534053,1527.825064191569,2088.635921945013,739.5223642033906,902.0753771347279,267.7741204927549,319.7529452724742,291.5354544411247,642.8211884023921,387.6237330902092,292.6558079886774,2215.439119513394,1951.147570368385,995.3980034007395,733.5219189006056,529.082222972556,369.3902474678992,281.2067946764051,866.505019343118,1040.687300839583,1769.04057919965,240.720467395641,1271.110049332966,1001.151622066669,347.8930187461269,409.9085349339202,1534.48273543787,476.3086594416825,457.3103412636296,1126.455998779002,1332.487242562668,171.2263767213526,757.5992131937637,317.5627310216135,501.1821208545348,747.3400698102902,245.1574916973205,551.2693153050229,1193.776719849926,188.2714428967282,421.0212547569062,951.6250399963375,868.7729484267934,606.8389700479012,285.5528666527664,698.3302464029325,124.4076175777317,246.2347525006308,855.1542338998921,447.2362879978643,191.0475506678357,1247.835534507824,1734.671812176971,662.9384547115951,91.44401438665766,100.8001459567476,200.3109388646986,1262.607604174635,1087.362566727516,107.3541851414017,150.8214214778407,285.7662361054494,1589.046960002723,1290.603803132975,943.4062116093006,126.9410452086637,2430.803151296214,668.1642164060368,67.20897748835546,365.0094464373537,594.2220264616014,691.7638767269351,820.2349528331223,476.3451615491964,750.5713835618099,1943.748777394672,1003.132825923676,1690.203729501011,126.3322503490951,158.50414938027,502.7376082075582,801.8647424994805,1078.031891530332,2230.454882488827,319.3654955397921,1697.973416081456,628.3490420071357,248.5092095045001,379.7359121663012,2471.542149371342,718.0200650897748,1585.855092440781,740.0440887517816,2304.979230604773,288.3361652120838,814.5299221383517,704.539166895319,514.9586922795334,1784.820722962449,1474.071859201146,1973.141659195817,177.5012746580261,2085.487241379954,518.7019369440682,1033.611434901543,1097.634798335962,1343.043145079678,437.0798271752678,921.4062612035596,343.6982344575741,921.4251627022422,1840.829797408434,383.4544706858876,1255.266492029409,1803.175865096664,394.2434662090288,1376.420476744941,663.127207524998,900.7917654259987,2291.058886334479,622.3805265006466,1838.959596155267,830.8749002214527,407.5133476262228,304.5273788050216,341.1014025292025,471.2753021389965,1732.28839774812,1733.497586977611,608.5332817567015],[4000,1576.118270453539,15000,5000,4000,3626.928761575003,4799.018285336299,6853.273576367503,12500,3363.877313774223,3267.756377589821,20443.63338469133,5774.624277699761,2831.51202996091,5632.44614999446,15595.61589164242,12290.9352457921,3244.094821200875,4000,680,3500,2000,1621.576713698566,2000,1500,3248.121598984066,1915.596357630763,4008.98106012515,4039.860229950782,2000,15000,1500,2500,1800,5000,1400,15000,3889.491980855923,2000,2908.109721071365,9600,2000,4583.786690208993,3500,5000,2000,3321.620863063332,3371.327166225126,2500,3804.845207990156,3983.250070897989,3550.086980184379,5000,2500,2887.896290312511,1609.242688911578,5299.774000014541,4000,5000,6000.000000000001,2000,2500,14000,1000,500,1500,10000,2058.515155567783,2000,2772.05776546374,1734.825892995168,2500,4000,2186.23414206274,1212,1500,2500,988.0788447383923,1600,2987.275718273317,3220.973833775193,2939.448487410909,2246.246906983441,2465.895782369661,1997.770516023531,3222.581064537661,5098.465918574697,7754.165234581588,3378.330294598283,799.1432231612619,1219.417898244538,1109.120875188366,2278.864741584753,2103.990175986251,1102.498753918303,1223.815584592506,888.2918738432089,1500,428.7641363912856,2008.262058268497,1421.660002506271,999.9999999999999,1419.632259026573,1279.28484887991,2500,4557.035809778387,1327.723164304799,1650,1567.455603909115,792.9829842201689,1500,300,2018.172042843566,900,1500,2528.506723485372,2000,1097.182492097634,3702.984398887234,3548.86723355545,2067.968605701976,3500,1945.746964216445,1000,2000,800,1000,3200,1845.611328459226,1815.525605196766,2800,2960.838921003311,4000,12000,2500,881.6274215080189,5000,1212,1014.460493026721,764.3373470403524,2500,1396.620752908554,600,1000,1212,1200,1239.127561403184,843.076941429478,1000,1351.845142548698,1239.14475809246,1212,2000,1215.779633434236,3000,649.9999999999999,3636.894974482977,2800,1000,706.5185824938292,1500,16000,2218.111908609655,1500,2000,1406.368481217601,2500,2000,1292.998682564355,3765.642559130941,2500,1000,1843.68663554356,1000,522.7658229224513,310.8381157238823,233.0147353434382,200,531.491192573582,767.9085276680471,2500,750,300,799.9999999999999,491.1175424052698,150,4800,1500,712.8811542768324,1131.573454238627,1382.449269308851,1000.553683130875,600,968.5496350321226,700.5326572109179,1800,1662.159210454253,800,1876.076568877186,5268.89432766286,1800,1200,2261.221736588826,2000,1305.87398856605,1212,1500,3885.697793475655,2437.967546869266,2837.90108620353,2777.119786044334,1750,2727.808274487525,1209.292616606348,6000,1700,2851.63667017848,1212,4443.508676696447,3371.825447832411,3010.067528918769,540.6361514773506,1153.840435873953,364.2848164198114,678.0496500715017,670.4376258911155,1484.05664491144,1247.121457587053,4000,769.5452682129586,738.8144940022005,603.967021985881,978.1167994441563,912.1127434057155,1913.886360170288,985.6299083641395,1000,719.3151754796726,1087.003145306405,829.3395771839739,728.4338448820555,1462.122209589657,1000,1057.081677018187,2000,1212,1190.011316279305,2000,1212,700,4806.391958989653,1153.926126982964,1013.545090902394,795.7590500320963,6059.176418596219,1635.391645414791,1065.031473697328],[4.252244848818075e-13,272.9072700826181,7.518705761983394e-13,1.116694205488863e-13,2.368866135638698e-13,297.5781978352314,812.3181482270353,731.4019529173149,3.158488180851597e-13,1092.937751440796,11.38108246102792,8511.748149444596,1943.413436978337,1205.600436477349,2005.388665328148,2583.872796307023,5464.868740304091,750.1742121626881,1.405142727711188e-13,3.780027754844152e-14,6.447237001414905e-14,9.398382202479242e-14,279.0738206008946,9.398382202479242e-14,3.223618500707453e-14,1101.731888698684,630.3664613611596,569.2482425980747,620.9434543802988,9.398382202479242e-14,1.615672961651449e-12,4.264446437309406e-14,5.583471027444316e-14,6.447237001414905e-14,0,2.279442501808651e-14,6.70016523293318e-13,644.0351639727734,1.920692391958351e-13,820.1815112970243,0,2.449737971192979e-13,1192.096583935973,9.117770007234604e-14,9.117770007234604e-14,6.645659787556032e-14,693.3132685443154,1391.895025557959,5.583471027444316e-14,728.7349679086577,753.3473549662151,338.4169676329329,0,1.289447400282981e-13,710.0359654943514,366.1994944216443,808.7017264175955,2.11386801441917e-13,9.117770007234604e-14,7.682769567833405e-13,4.835427751061179e-14,0,4.276613213637857e-13,5.52500375107824e-14,2.87765510046611e-14,7.896220452128992e-14,0,2214.860405218247,9.259139212926477e-14,1031.759312816009,340.2892576965575,1.069153303409464e-13,1.329131957511206e-13,217.8831720006373,4.264446437309406e-14,5.811460898417534e-14,3.223618500707453e-14,4.727317710071305,5.811460898417534e-14,616.5819328422102,167.9672577275318,979.7714213655465,414.7350661455917,858.6788378487787,153.3120804661274,729.6192028077946,1237.487650418188,2376.701982619315,1818.55140179646,310.4141326154178,117.8549501408406,253.0716187897316,686.7270562332145,706.1311511425107,75.14492282488951,436.3274863734788,472.9719977969054,7.025713638555942e-14,113.9872076376619,766.3862918804156,344.0015935385904,1.208856937765295e-13,242.9649683740762,155.0219293567864,0,3061.383580352216,901.7586776796348,7.208230101107817e-14,244.292027765519,128.0573517145228,2.279442501808651e-14,0,529.2124590866782,3.512856819277971e-14,4.264446437309406e-14,534.2018472563906,8.375206541166475e-14,271.8411104471872,499.4828759810966,492.9222982594071,452.0585074296392,1.116694205488863e-13,437.3629430596417,4.109323409871504e-14,9.535592120230628e-14,3.948110226064496e-14,1.041458296021515e-13,1.248502076776609e-13,666.1154383467294,529.4041550563331,1.162292179683507e-13,473.1300142348659,2.256532950495217e-13,4.466776821955453e-13,3.223618500707453e-14,252.7534413546136,1.823554001446921e-13,4.264446437309406e-14,188.2387636091667,208.6648289330212,7.896220452128992e-14,141.0915673123767,8.059046251768631e-15,4.339929225409367e-14,1.611809250353726e-14,5.583471027444316e-14,1016.818464657765,203.410948765376,4.699191101239621e-14,175.3603978736796,413.8426428065554,0,8.375206541166475e-14,153.7148242096747,7.208230101107817e-14,8.679858450818733e-14,332.4153715783575,5.583471027444316e-14,4.339929225409367e-14,480.2233342938615,3.604115050553909e-14,7.294216005787683e-13,173.9646236371108,2.279442501808651e-14,1.162292179683507e-13,498.1827327450371,0,2.026012811916753e-13,81.5209606111728,1134.825291789288,0,6.084446490704248e-14,531.4119293072853,4.414121424071137e-14,111.2709782714283,70.97535891510991,36.62947818802061,2.500253347059864e-14,168.75638336543,154.9488375417074,4.558885003617302e-14,3.604115050553909e-14,0,1.013006405958377e-13,229.7516815410528,0,2.324584359367014e-13,2.279442501808651e-14,300.2526066342945,86.70393295685525,494.396933969631,490.1673192343114,0,397.0297893309181,289.5114392388435,8.218646819743008e-14,282.9711810466659,2.279442501808651e-14,549.4444298869964,3135.354893553511,4.649168718734027e-13,0,873.2622781901662,5.345766517047321e-14,538.0394389192862,0,7.896220452128992e-14,138.6607391319448,548.7755112693019,1087.737388600787,593.6008598359783,1.006574554225904e-13,495.0804579716998,451.806132033286,1.116694205488863e-13,8.375206541166475e-14,634.7232955342563,0,663.1953745064314,364.3287113076703,492.0404233542314,57.01200304252656,299.5406525675115,79.16450466275458,113.1952831560261,111.8903612893062,384.5975994670064,496.675969967734,4.455129404941839e-13,88.61302983970418,360.1588920796115,298.9938721441681,189.8484636769055,140.14822780496,579.27600877305,363.7920247824345,9.837319628198403e-14,251.6088098451044,377.325924955812,328.4720728092052,142.9669283930498,382.0014514684233,3.864982806206721e-14,223.6165750062394,9.804252914039708e-14,4.558885003617302e-14,129.6309026358757,8.97417410379925e-14,3.604115050553909e-14,1.802057525276954e-14,2116.185585897763,197.4021122030385,758.8228056745546,88.83797004573138,1307.402631629831,336.9838748962211,389.5521738837683],[40,57.39445467207648,58.99999999999999,47,59,48.98167577957815,42.45657086170724,40.53273576367503,48,37.72775462754844,52.30326913276947,36.94456155224139,51.28228708332227,28.98907217976546,35.71567122201306,42.96938644359523,45.45073467442248,40.53543107279476,49,48,61.99999999999999,24,58.88139558097539,31,53,41.23309439085659,34.6064897328687,25.393207067501,36.26655389267875,33,31,45,36,38,49,43,47,36.32142780258464,56,32.94051876553657,36,34.28180855423616,30.54333897730779,34,36,40,54.50586040673747,52.68555076044724,46,40.39379009802416,42.83250070897989,46.95078282165941,31,31,39.19090714503839,44.07984504414949,46.65101699993456,25,34,73,43,54,44,75,39,23,53.99999999999999,57.35196465929798,42,36.96349285708323,51.12177028710352,60,56,47.15585355156851,51,29,42,34.33037817839185,43,49.15269138072021,46.47655357881277,30.22938769562988,33.54302815968127,42.54543325179147,44.27994645418632,40.8936612824461,39.32169833216033,34.46766296201918,38.08585089865866,69.35332479290389,53.98602097231058,55.28985350646509,45.1993734380364,36.10002728892708,57.35136219464496,58.88820037824799,41.53019517629058,56,63.2106724426634,37.17620855904594,31.64838131372193,57.71917559163111,45.65007101562372,52.71428024245778,51,40.70683983371506,24.2817992198683,47,37.95949015363254,27.77531715867829,69,21,30.89557569703495,59,66,64.14177872475621,27,45.33519399744879,35.28785293674947,36.52855922444227,33.19955076143561,54,64.13935864008765,57,67,64,47,46,30.40927289273942,35.68948789606468,28,40.48843574921549,48,38,48,41.92801286093253,34,45,46.34583402364666,46.0258410550286,55,52.71054632962527,23,36,61,43,53.2608748862904,34.38341453688349,38,42.42505329387938,42.50206237800693,22,38,34.49764586702932,30,29,46.81834285559445,37,43,45.58381178630103,55,47,48.92601435497379,49,61,28.37578158903938,44,43,45.78181568883857,35.94273759855157,39,40,39.06211981326136,47,54.9404219445987,69.66257173585824,64.37793705191864,58,55.83927266405907,57.04329967298497,35,43,57,53,50.42857604787903,27,41,37,46.59548534051066,38.96428550390884,31.1635533792365,31.8301035150699,36,36.37545496172533,22.29540021820959,31,26.57769901306782,39,37.24784686224562,26.94299753376646,29.42452145885374,51.00000000000001,46.57472670626123,47.99999999999999,52.4649512641994,47,51,39.2897442366341,45.49392386772646,41.05014467351498,43.34484973643209,27,38.53952245042385,51.26181530447306,53,53.00000000000001,38.11938492819943,33,39.64264125668915,39.92381074797786,31.44904416543515,67.52867059419219,76.12125003525411,69.94264118558314,58.22036905166856,55.98524113930664,52.0281288641147,46.68700402084806,63,43.65623993405418,48.08492034058199,55.07877165266866,50.82536767619025,37.29296406628038,35.16836286244681,57.62803112386204,40,51.95625745119307,41.40809851660631,37.25300555025866,58.5045779087694,40.48046040286796,24,45.86702918075626,37,26,34.31548837263085,29,23,24,49.023111922636,52.88162064720655,61.26318540923415,40.57947060166901,45.19188076801592,27.42652614201163,40],[5.036903907355395e-16,0.3898675286894545,5.873988876549526e-15,7.123257818152034e-16,3.104956097811074e-15,7.88036657460031,3.215233738669158,7.314019529173148,2.518451953677697e-15,2.185875502881593,0.03414324738308428,11.72729745034589,4.021733031730395,7.233602618864095,4.438870682945957,6.203776313931982,9.60492081629204,4.501045272976127,1.816081530755479e-15,2.712455765880854e-15,6.997490541317568e-15,1.356227882940427e-15,2.124927568027116,3.360033992761049e-15,8.724173480381744e-16,9.915586998288154,0.3525539493071354,3.794988283987164,3.939114443357037,0,1.612596074540377e-15,1.126285953298096e-15,0,1.233784445645155e-15,8.724173480381744e-16,0,2.13697734544561e-15,7.141781261788445,3.378857859894289e-15,11.07245040250983,0,4.629359420290617,4.099603600463233,5.036903907355395e-16,0,1.744834696076349e-15,5.845145357601647,2.526674528235141,7.123257818152034e-16,5.594731934764837,7.533473549662151,3.045752708696396,1.689428929947145e-15,3.145545481955951e-15,2.308236597940375,4.760593427481376,3.639157768879179,3.195557289613604e-15,0,1.424651563630407e-15,1.332639511659189e-15,8.724173480381744e-16,1.126285953298096e-15,1.007380781471079e-15,0,1.068488672722805e-15,6.663197558295947e-15,7.013724616524447,5.036903907355395e-16,3.181015045800808,6.394818873691387,1.511071172206618e-15,1.816081530755479e-15,5.447079300015935,8.724173480381744e-16,5.631429766490482e-16,5.036903907355395e-16,0.08929377896801347,1.233784445645155e-15,7.398983194106525,2.304420450316316,5.549648782043841,4.55419403443314,1.373886140558045,3.515035050744072,6.716973235474766,2.485495293804449,4.257197804242572,6.864019640667833,7.242996427693082,3.448990364429545,9.903508811529834,7.959527959773253,1.961475419840308,3.190114648226442,4.180841255426541,6.54884304641869,2.308199342367493e-15,2.137260143206161,5.490982842719673,5.876823019637711,8.966764898982527,4.220166984441178,4.11204889904743,1.233784445645155e-15,4.060881994788649,4.16196312775216,2.617252044114523e-15,3.521302617665942,4.893777127127885,0,0,3.839973625031931,2.308199342367493e-15,0,8.903364120939843,6.168922228225775e-16,6.69121184943692,2.262401788262797,3.099902037091115,1.765599029173952,1.233784445645155e-15,0.6791350047509968,8.724173480381744e-16,0,0,8.724173480381744e-16,2.252571906596193e-15,5.166876109042179,10.58808310112666,2.969211063186042e-15,2.183676988776305,1.233784445645155e-15,0,1.126285953298096e-15,0.7099815768388019,0,1.884636871142684e-15,10.18924586741418,2.837980660614035,1.816081530755479e-15,8.690090392231481,3.561628909076017e-16,0,2.804429407437266e-15,1.511071172206618e-15,1.882997156773639,11.91861027922125,0,3.49365353304594,8.99775105430485,5.631429766490482e-16,1.126285953298096e-15,2.91720535586212,7.964044351322392e-16,5.631429766490482e-16,4.681867295647119,7.123257818152034e-16,1.126285953298096e-15,7.064345667522742,2.665279023318379e-15,7.123257818152034e-16,3.131363225467995,7.123257818152034e-16,3.264286814636768e-15,4.040093269864167,1.233784445645155e-15,1.884636871142684e-15,2.264444101687849,1.89137548631548,7.123257818152034e-16,7.123257818152034e-16,3.188471575843712,8.724173480381744e-16,2.967226087238089,1.064630383726648,5.128126946322882,2.415614253879201e-15,3.496687269371062,4.846945172653871,7.123257818152034e-16,2.13697734544561e-15,3.225192149080754e-15,2.308199342367493e-15,3.558785910277096,6.168922228225775e-16,1.950784494963451e-15,0,7.472244973495662,3.363806289933202,4.684960717377488,2.85930936220015,0,1.991847299566744,6.68103321320408,1.744834696076349e-15,0.3537139763083325,5.036903907355395e-16,1.098888859773994,1.363197779805874,1.529348003471708,6.065235478470845e-15,5.776874617448163,5.586196666380124e-15,10.4761298848267,7.123257818152034e-16,2.46756889129031e-15,5.714041447744975,3.619595833914667,3.82971075166956,9.196582802318794,3.074162383812001e-15,2.616679555738802,8.720522769024821,5.036903907355395e-16,6.41093203633683e-15,1.348530695182698,0,5.422937685263592,8.743889071384089,1.484619537245339,1.987500943980336,9.676172765523548,8.03407443128803,2.059003258572962,1.959785405028706,4.220139469779778,2.705208248014429,3.4531273444239e-15,5.470403335945516,9.116297154644595,6.542735731364815,4.589521501829534,6.777304420586002,4.050024763655447,8.139690964300431,0,12.74489069476837,5.771604744048934,1.291271603702445,3.001018326009863,4.20014185311459,1.332639511659189e-15,7.776314505813386,0,3.001081862434924e-15,2.131417951581904,1.424651563630407e-15,9.753922474817255e-16,1.402214703718633e-15,3.502841387991125,6.134430754569927,5.521579667070566,4.619574442378032,3.878398573050849,5.413008467099364,3.145545481955951e-15]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>VD4007<\/th>\n      <th>V1023<\/th>\n      <th>V4019<\/th>\n      <th>VD3004<\/th>\n      <th>VD4010<\/th>\n      <th>contagem<\/th>\n      <th>contagem_se<\/th>\n      <th>renda_media<\/th>\n      <th>renda_media_se<\/th>\n      <th>idade_media<\/th>\n      <th>idade_media_se<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#writexl::write_xlsx(resultados,"resultados_sem_desagregar.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="análise-2---com-desagregações" class="level3">
+<h3 class="anchored" data-anchor-id="análise-2---com-desagregações">Análise 2 - com desagregações</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>teste_srv2 <span class="ot">&lt;-</span> pnad_srvyr <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(UF <span class="sc">==</span> <span class="st">"Goiás"</span> <span class="sc">&amp;</span> V2007 <span class="sc">==</span> <span class="st">"Mulher"</span> <span class="sc">&amp;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>        (VD4007 <span class="sc">==</span> <span class="st">"Empregador"</span> <span class="sc">|</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>         VD4007 <span class="sc">==</span> <span class="st">"Conta própria"</span>) <span class="sc">&amp;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>         VD2006 <span class="sc">!=</span> <span class="st">"14 a 19 anos"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">regiao =</span> V1023, <span class="at">formalizacao =</span> V4019,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">idade_anos =</span> V2009, <span class="at">educacao =</span> VD3005) <span class="sc">|&gt;</span> </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">empreendedor =</span> </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>           <span class="fu">case_when</span>(</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>                      VD4007 <span class="sc">==</span> <span class="st">"Empregador"</span> <span class="sc">~</span> <span class="st">"Empreendedor"</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>                      VD4007 <span class="sc">==</span> <span class="st">"Conta própria"</span> <span class="sc">~</span> <span class="st">"Empreendedor"</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>                    )) <span class="sc">|&gt;</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">atuacao =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>                      VD4010 <span class="sc">==</span> <span class="st">"Agricultura, pecuária, produção florestal, pesca e aquicultura"</span> <span class="sc">~</span> <span class="st">"Agricultura"</span>,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>                      VD4010 <span class="sc">==</span> <span class="st">"Indústria geral"</span> <span class="sc">~</span> <span class="st">"Indústria"</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>                      VD4010 <span class="sc">==</span> <span class="st">"Comércio, reparação de veículos automotores e motocicletas"</span> <span class="sc">~</span> <span class="st">"Comércio"</span>,</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>                      T <span class="sc">~</span> <span class="st">"Serviços"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">educacao =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Sem instrução e menos de 1 ano de estudo"</span> <span class="sc">|</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Fundamental incompleto ou equivalente"</span> <span class="sc">|</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Fundamental completo ou equivalente"</span> <span class="sc">~</span> <span class="st">"Até o ensino fundamental completo"</span>,</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Médio incompleto ou equivalente"</span> <span class="sc">|</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Médio completo ou equivalente"</span> <span class="sc">~</span> <span class="st">"Até o ensino médio completo"</span>,</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Superior incompleto ou equivalente"</span><span class="sc">|</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>                      VD3004 <span class="sc">==</span> <span class="st">"Superior completo"</span> <span class="sc">~</span> <span class="st">"Até o ensino superior completo"</span>,</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>                      T <span class="sc">~</span> <span class="st">"Não aplicável"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(empreendedor, regiao, </span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>           educacao, atuacao, formalizacao) <span class="sc">|&gt;</span> </span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">contagem =</span> <span class="fu">survey_total</span>(),</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">renda_media =</span> <span class="fu">survey_mean</span>(VD4016, <span class="at">na.rm =</span> T),</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">idade_media =</span> <span class="fu">survey_mean</span>(idade_anos, <span class="at">na.rm =</span> T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>teste <span class="ot">&lt;-</span> <span class="fu">svytotal</span>(<span class="at">x=</span><span class="sc">~</span><span class="fu">interaction</span>(VD3004,VD4010),</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">design =</span> pnad_srvyr, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ftable</span>(teste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                               A
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Agricultura, pecuária, produção florestal, pesca e aquicultura                                   745579.0664
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                     4085771.4907
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                        854574.5379
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                            677443.5750
+interaction(VD3004, VD4010)Médio completo ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                             1746201.7651
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                         106839.7513
+interaction(VD3004, VD4010)Superior completo.Agricultura, pecuária, produção florestal, pesca e aquicultura                                                          271237.1599
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Indústria geral                                                                                  181804.9904
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Indústria geral                                                                                    2175214.7176
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Indústria geral                                                                                      1043809.4257
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Indústria geral                                                                                          1000529.3320
+interaction(VD3004, VD4010)Médio completo ou equivalente.Indústria geral                                                                                            5598812.2792
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Indústria geral                                                                                        729137.6862
+interaction(VD3004, VD4010)Superior completo.Indústria geral                                                                                                        2098922.1666
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Construção                                                                                       253462.9926
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Construção                                                                                         2786601.7096
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Construção                                                                                            850956.1919
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Construção                                                                                                695089.7877
+interaction(VD3004, VD4010)Médio completo ou equivalente.Construção                                                                                                 2068043.2561
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Construção                                                                                             186503.2821
+interaction(VD3004, VD4010)Superior completo.Construção                                                                                                              526983.3687
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Comércio, reparação de veículos automotores e motocicletas                                       283544.5079
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                         2858618.9692
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                           1466548.3656
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                               1735452.5958
+interaction(VD3004, VD4010)Médio completo ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                                 9022593.0145
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                            1192152.1333
+interaction(VD3004, VD4010)Superior completo.Comércio, reparação de veículos automotores e motocicletas                                                             2626697.8754
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Transporte, armazenagem e correio&nbsp;                                                                75642.1569
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                  942862.1658
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                    523075.0004
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                        408174.4888
+interaction(VD3004, VD4010)Médio completo ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                         2493379.6530
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                     296494.8526
+interaction(VD3004, VD4010)Superior completo.Transporte, armazenagem e correio&nbsp;                                                                                      598648.9160
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Alojamento e alimentação&nbsp;                                                                        105554.2879
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Alojamento e alimentação&nbsp;                                                                          1110233.7751
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Alojamento e alimentação&nbsp;                                                                             472505.1535
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Alojamento e alimentação&nbsp;                                                                                 592507.4793
+interaction(VD3004, VD4010)Médio completo ou equivalente.Alojamento e alimentação&nbsp;                                                                                  2353382.1675
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Alojamento e alimentação&nbsp;                                                                              247739.7054
+interaction(VD3004, VD4010)Superior completo.Alojamento e alimentação&nbsp;                                                                                               459438.3431
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas   85541.9006
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas     839777.5998
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas       425440.7318
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas           479460.0683
+interaction(VD3004, VD4010)Médio completo ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas            3530566.7083
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas       1295132.6338
+interaction(VD3004, VD4010)Superior completo.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas                        5278479.0878
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Administração pública, defesa e seguridade social&nbsp;                                                45328.9980
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                  383626.6183
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                    152759.5880
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                        169570.0399
+interaction(VD3004, VD4010)Médio completo ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                         1478783.8636
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                     510476.5941
+interaction(VD3004, VD4010)Superior completo.Administração pública, defesa e seguridade social&nbsp;                                                                     2428241.6771
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Educação, saúde humana e serviços sociais                                                         53178.7102
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Educação, saúde humana e serviços sociais                                                           400540.2468
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Educação, saúde humana e serviços sociais                                                             225753.2902
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Educação, saúde humana e serviços sociais                                                                 268754.4393
+interaction(VD3004, VD4010)Médio completo ou equivalente.Educação, saúde humana e serviços sociais                                                                  3204823.4049
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Educação, saúde humana e serviços sociais                                                             1057852.1776
+interaction(VD3004, VD4010)Superior completo.Educação, saúde humana e serviços sociais                                                                              7206492.0732
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Outros Serviços                                                                                   56016.7628
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Outros Serviços                                                                                     645744.5471
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Outros Serviços                                                                                       379161.1462
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Outros Serviços                                                                                           480626.1881
+interaction(VD3004, VD4010)Médio completo ou equivalente.Outros Serviços                                                                                            2431912.6743
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Outros Serviços                                                                                        416020.7413
+interaction(VD3004, VD4010)Superior completo.Outros Serviços                                                                                                         998119.8897
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Serviços domésticos                                                                              224487.8619
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Serviços domésticos                                                                                2279937.2966
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Serviços domésticos                                                                                   722171.9880
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Serviços domésticos                                                                                       560618.3723
+interaction(VD3004, VD4010)Médio completo ou equivalente.Serviços domésticos                                                                                        1882359.4664
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Serviços domésticos                                                                                     90204.5184
+interaction(VD3004, VD4010)Superior completo.Serviços domésticos                                                                                                     113933.2174
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Atividades mal definidas                                                                            462.9286
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Atividades mal definidas                                                                              5670.3156
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Atividades mal definidas                                                                                1978.5889
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Atividades mal definidas                                                                                     992.8096
+interaction(VD3004, VD4010)Médio completo ou equivalente.Atividades mal definidas                                                                                      6362.1337
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Atividades mal definidas                                                                                 1045.3408
+interaction(VD3004, VD4010)Superior completo.Atividades mal definidas                                                                                                  2599.9847
+                                                                                                                                                                               B
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Agricultura, pecuária, produção florestal, pesca e aquicultura                                    27710.6968
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                       75184.1463
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                         26416.0341
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                             25106.0986
+interaction(VD3004, VD4010)Médio completo ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                               51183.7843
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Agricultura, pecuária, produção florestal, pesca e aquicultura                                           9233.2852
+interaction(VD3004, VD4010)Superior completo.Agricultura, pecuária, produção florestal, pesca e aquicultura                                                           15745.9480
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Indústria geral                                                                                   12875.5773
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Indústria geral                                                                                      49185.5435
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Indústria geral                                                                                        38703.1609
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Indústria geral                                                                                            33714.1880
+interaction(VD3004, VD4010)Médio completo ou equivalente.Indústria geral                                                                                              99065.9842
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Indústria geral                                                                                         31903.1661
+interaction(VD3004, VD4010)Superior completo.Indústria geral                                                                                                          67705.5773
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Construção                                                                                        14196.2039
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Construção                                                                                           56624.2656
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Construção                                                                                             28662.5768
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Construção                                                                                                 25665.3502
+interaction(VD3004, VD4010)Médio completo ou equivalente.Construção                                                                                                   48897.9545
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Construção                                                                                              13714.0873
+interaction(VD3004, VD4010)Superior completo.Construção                                                                                                               26131.0875
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Comércio, reparação de veículos automotores e motocicletas                                        16158.9022
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                           50102.1596
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                             38793.2444
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                                 45414.3448
+interaction(VD3004, VD4010)Médio completo ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                                  109561.4360
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Comércio, reparação de veículos automotores e motocicletas                                              32123.6359
+interaction(VD3004, VD4010)Superior completo.Comércio, reparação de veículos automotores e motocicletas                                                               60160.2766
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Transporte, armazenagem e correio&nbsp;                                                                 7904.4682
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                   28655.7495
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                     24000.2636
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                         21346.2902
+interaction(VD3004, VD4010)Médio completo ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                           54958.9967
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Transporte, armazenagem e correio&nbsp;                                                                      17806.2018
+interaction(VD3004, VD4010)Superior completo.Transporte, armazenagem e correio&nbsp;                                                                                       24069.3050
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Alojamento e alimentação&nbsp;                                                                          8321.5249
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Alojamento e alimentação&nbsp;                                                                            32494.0367
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Alojamento e alimentação&nbsp;                                                                              24807.8083
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Alojamento e alimentação&nbsp;                                                                                  26229.1334
+interaction(VD3004, VD4010)Médio completo ou equivalente.Alojamento e alimentação&nbsp;                                                                                    55807.7128
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Alojamento e alimentação&nbsp;                                                                               15816.7216
+interaction(VD3004, VD4010)Superior completo.Alojamento e alimentação&nbsp;                                                                                                22397.9405
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas    8828.5429
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas      30122.9065
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas        21604.6831
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas            23751.1480
+interaction(VD3004, VD4010)Médio completo ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas              66903.0222
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas         41711.4807
+interaction(VD3004, VD4010)Superior completo.Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas                         104723.3065
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Administração pública, defesa e seguridade social&nbsp;                                                 4863.3451
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                   17380.6867
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                     11127.0289
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                         11846.9614
+interaction(VD3004, VD4010)Médio completo ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                           37495.5832
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Administração pública, defesa e seguridade social&nbsp;                                                      18218.1256
+interaction(VD3004, VD4010)Superior completo.Administração pública, defesa e seguridade social&nbsp;                                                                       54063.6478
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Educação, saúde humana e serviços sociais                                                          6955.7448
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Educação, saúde humana e serviços sociais                                                            17534.6904
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Educação, saúde humana e serviços sociais                                                              14149.1058
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Educação, saúde humana e serviços sociais                                                                  14684.6906
+interaction(VD3004, VD4010)Médio completo ou equivalente.Educação, saúde humana e serviços sociais                                                                    56284.2590
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Educação, saúde humana e serviços sociais                                                               33094.5687
+interaction(VD3004, VD4010)Superior completo.Educação, saúde humana e serviços sociais                                                                               106641.0441
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Outros Serviços                                                                                    7421.2445
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Outros Serviços                                                                                      23713.4470
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Outros Serviços                                                                                        19788.4232
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Outros Serviços                                                                                            21835.7724
+interaction(VD3004, VD4010)Médio completo ou equivalente.Outros Serviços                                                                                              46112.9934
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Outros Serviços                                                                                         19929.1309
+interaction(VD3004, VD4010)Superior completo.Outros Serviços                                                                                                          38151.7522
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Serviços domésticos                                                                               12364.8840
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Serviços domésticos                                                                                  48709.9491
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Serviços domésticos                                                                                    25373.0745
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Serviços domésticos                                                                                        27262.1134
+interaction(VD3004, VD4010)Médio completo ou equivalente.Serviços domésticos                                                                                          40583.4968
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Serviços domésticos                                                                                      8749.7354
+interaction(VD3004, VD4010)Superior completo.Serviços domésticos                                                                                                      12620.9118
+interaction(VD3004, VD4010)Sem instrução e menos de 1 ano de estudo.Atividades mal definidas                                                                            371.2126
+interaction(VD3004, VD4010)Fundamental incompleto ou equivalente.Atividades mal definidas                                                                              1917.3109
+interaction(VD3004, VD4010)Fundamental completo ou equivalente.Atividades mal definidas                                                                                 983.3757
+interaction(VD3004, VD4010)Médio incompleto ou equivalente.Atividades mal definidas                                                                                     578.8688
+interaction(VD3004, VD4010)Médio completo ou equivalente.Atividades mal definidas                                                                                      2542.9876
+interaction(VD3004, VD4010)Superior incompleto ou equivalente.Atividades mal definidas                                                                                  854.6955
+interaction(VD3004, VD4010)Superior completo.Atividades mal definidas                                                                                                  1131.7148</code></pre>
+</div>
+</div>
+<p>Média ponderada</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>media_ponderada <span class="ot">&lt;-</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  teste_srv2 <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(empreendedor, regiao, educacao, formalizacao, atuacao) <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">renda =</span> <span class="fu">weighted.mean</span>(renda_media, contagem),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">idade =</span> <span class="fu">weighted.mean</span>(idade_media, contagem)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">renda =</span> <span class="fu">round</span>(renda, <span class="dv">2</span>),</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">idade =</span> <span class="fu">round</span>(idade, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'empreendedor', 'regiao', 'educacao',
+'formalizacao'. You can override using the `.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#writexl::write_xlsx(media_ponderada, "sebrae2023_pnadc.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>media_ponderada <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> idade, <span class="at">y =</span> <span class="fu">log</span>(renda))) <span class="sc">+</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> regiao)) <span class="sc">+</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>atuacao) <span class="sc">+</span> <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Perfil-empreendedora-2023_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

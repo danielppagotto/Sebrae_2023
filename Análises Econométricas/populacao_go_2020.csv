@@ -1,0 +1,247 @@
+﻿regiao,cod_uf,uf_pad,uf_sigla,cod_regsaud,regiao_saude,cod_municipio,cod_municipiodv,municipio,ano,populacao
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520005,5200050,Abadia de Goiás,2020,8958
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520010,5200100,Abadiânia,2020,20461
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,520013,5200134,Acreúna,2020,22546
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,520015,5200159,Adelândia,2020,2516
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,520017,5200175,Água Fria de Goiás,2020,5793
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520020,5200209,Água Limpa,2020,1830
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,520025,5200258,Águas Lindas de Goiás,2020,217698
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520030,5200308,Alexânia,2020,28010
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520050,5200506,Aloândia,2020,1986
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,520055,5200555,Alto Horizonte,2020,6605
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,520060,5200605,Alto Paraíso de Goiás,2020,7688
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,520080,5200803,Alvorada do Norte,2020,8705
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,520082,5200829,Amaralina,2020,3845
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520085,5200852,Americano do Brasil,2020,6164
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520090,5200902,Amorinópolis,2020,3069
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520110,5201108,Anápolis,2020,391772
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520120,5201207,Anhanguera,2020,1160
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520130,5201306,Anicuns,2020,21981
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520140,5201405,Aparecida de Goiânia,2020,590146
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,520145,5201454,Aparecida do Rio Doce,2020,2474
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,520150,5201504,Aporé,2020,4232
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520160,5201603,Araçu,2020,3486
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520170,5201702,Aragarças,2020,20273
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520180,5201801,Aragoiânia,2020,10496
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520215,5202155,Araguapaz,2020,7783
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520235,5202353,Arenópolis,2020,2536
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520250,5202502,Aruanã,2020,10110
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,520260,5202601,Aurilândia,2020,3058
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520280,5202809,Avelinópolis,2020,2409
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520310,5203104,Baliza,2020,5280
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,520320,5203203,Barro Alto,2020,11408
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520330,5203302,Bela Vista de Goiás,2020,30492
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520340,5203401,Bom Jardim de Goiás,2020,8869
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520350,5203500,Bom Jesus de Goiás,2020,25648
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520355,5203559,Bonfinópolis,2020,9919
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,520357,5203575,Bonópolis,2020,4493
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520360,5203609,Brazabrantes,2020,3746
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520380,5203807,Britânia,2020,5797
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520390,5203906,Buriti Alegre,2020,9484
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,520393,5203939,Buriti de Goiás,2020,2476
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,520396,5203962,Buritinópolis,2020,3283
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,520400,5204003,Cabeceiras,2020,8046
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,520410,5204102,Cachoeira Alta,2020,12666
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,520420,5204201,Cachoeira de Goiás,2020,1342
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520425,5204250,Cachoeira Dourada,2020,8031
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,520430,5204300,Caçu,2020,16270
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,520440,5204409,Caiapônia,2020,19107
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520450,5204508,Caldas Novas,2020,93196
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520455,5204557,Caldazinha,2020,3848
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520460,5204607,Campestre de Goiás,2020,3649
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,520465,5204656,Campinaçu,2020,3632
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,520470,5204706,Campinorte,2020,12764
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520480,5204805,Campo Alegre de Goiás,2020,7738
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520485,5204854,Campo Limpo de Goiás,2020,7940
+Região Centro-Oeste,52,GOIAS,GO,52006,Nordeste I,520490,5204904,Campos Belos,2020,20007
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,520495,5204953,Campos Verdes,2020,1830
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,520500,5205000,Carmo do Rio Verde,2020,10186
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,520505,5205059,Castelândia,2020,3407
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520510,5205109,Catalão,2020,110983
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520520,5205208,Caturaí,2020,5101
+Região Centro-Oeste,52,GOIAS,GO,52006,Nordeste I,520530,5205307,Cavalcante,2020,9725
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,520540,5205406,Ceres,2020,22306
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520545,5205455,Cezarina,2020,8703
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,520547,5205471,Chapadão do Céu,2020,10486
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,520549,5205497,Cidade Ocidental,2020,72890
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520551,5205513,Cocalzinho de Goiás,2020,20504
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,520552,5205521,Colinas do Sul,2020,3360
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,520570,5205703,Córrego do Ouro,2020,2290
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520580,5205802,Corumbá de Goiás,2020,11169
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520590,5205901,Corumbaíba,2020,9869
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,520620,5206206,Cristalina,2020,60210
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520630,5206305,Cristianópolis,2020,2964
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,520640,5206404,Crixás,2020,17044
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520650,5206503,Cromínia,2020,3472
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520660,5206602,Cumari,2020,2837
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,520670,5206701,Damianópolis,2020,3306
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520680,5206800,Damolândia,2020,2953
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520690,5206909,Davinópolis,2020,2094
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520710,5207105,Diorama,2020,2479
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,520725,5207253,Doverlândia,2020,7247
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520735,5207352,Edealina,2020,3688
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520740,5207402,Edéia,2020,12467
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,520750,5207501,Estrela do Norte,2020,3264
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520753,5207535,Faina,2020,6576
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,520760,5207600,Fazenda Nova,2020,5553
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,520780,5207808,Firminópolis,2020,13449
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,520790,5207907,Flores de Goiás,2020,17005
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,520800,5208004,Formosa,2020,123684
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,520810,5208103,Formoso,2020,4172
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520815,5208152,Gameleira de Goiás,2020,3880
+Região Centro-Oeste,52,GOIAS,GO,52006,Nordeste I,520830,5208301,Divinópolis de Goiás,2020,4778
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,520840,5208400,Goianápolis,2020,11224
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,520850,5208509,Goiandira,2020,5625
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,520860,5208608,Goianésia,2020,71075
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520870,5208707,Goiânia,2020,1536097
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520880,5208806,Goianira,2020,45296
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520890,5208905,Goiás,2020,22381
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520910,5209101,Goiatuba,2020,34202
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520915,5209150,Gouvelândia,2020,5988
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,520920,5209200,Guapó,2020,14207
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520929,5209291,Guaraíta,2020,1951
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,520940,5209408,Guarani de Goiás,2020,3846
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,520945,5209457,Guarinos,2020,1737
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,520960,5209606,Heitoraí,2020,3733
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520970,5209705,Hidrolândia,2020,22124
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,520980,5209804,Hidrolina,2020,3508
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,520990,5209903,Iaciara,2020,14082
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,520993,5209937,Inaciolândia,2020,6235
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,520995,5209952,Indiara,2020,15787
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521000,5210000,Inhumas,2020,53259
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521010,5210109,Ipameri,2020,27174
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521015,5210158,Ipiranga de Goiás,2020,2893
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521020,5210208,Iporá,2020,31499
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521030,5210307,Israelândia,2020,2786
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521040,5210406,Itaberaí,2020,43622
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521056,5210562,Itaguari,2020,4685
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,521060,5210604,Itaguaru,2020,5206
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521080,5210802,Itajá,2020,4475
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521090,5210901,Itapaci,2020,23421
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521100,5211008,Itapirapuã,2020,4685
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521120,5211206,Itapuranga,2020,25681
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521130,5211305,Itarumã,2020,7259
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521140,5211404,Itauçu,2020,8960
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,521150,5211503,Itumbiara,2020,105809
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521160,5211602,Ivolândia,2020,2334
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521170,5211701,Jandaia,2020,6025
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,521180,5211800,Jaraguá,2020,51338
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,521190,5211909,Jataí,2020,102065
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521200,5212006,Jaupaci,2020,2860
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521205,5212055,Jesúpolis,2020,2506
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,521210,5212105,Joviânia,2020,7402
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521220,5212204,Jussara,2020,18371
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521225,5212253,Lagoa Santa,2020,1621
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521230,5212303,Leopoldo de Bulhões,2020,7651
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,521250,5212501,Luziânia,2020,211508
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521260,5212600,Mairipotaba,2020,2363
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,521270,5212709,Mambaí,2020,9081
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,521280,5212808,Mara Rosa,2020,9363
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521290,5212907,Marzagão,2020,2250
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521295,5212956,Matrinchã,2020,4336
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521300,5213004,Maurilândia,2020,14327
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,521305,5213053,Mimoso de Goiás,2020,2583
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521308,5213087,Minaçu,2020,28793
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,521310,5213103,Mineiros,2020,68154
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521340,5213400,Moiporá,2020,1501
+Região Centro-Oeste,52,GOIAS,GO,52006,Nordeste I,521350,5213509,Monte Alegre de Goiás,2020,8684
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521370,5213707,Montes Claros de Goiás,2020,8047
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521375,5213756,Montividiu,2020,13672
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521377,5213772,Montividiu do Norte,2020,4509
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,521380,5213806,Morrinhos,2020,46548
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521385,5213855,Morro Agudo de Goiás,2020,2232
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521390,5213905,Mossâmedes,2020,4206
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521400,5214002,Mozarlândia,2020,15870
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521405,5214051,Mundo Novo,2020,4713
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521410,5214101,Mutunópolis,2020,3764
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521440,5214408,Nazário,2020,9260
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521450,5214507,Nerópolis,2020,30395
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,521460,5214606,Niquelândia,2020,46730
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521470,5214705,Nova América,2020,2357
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521480,5214804,Nova Aurora,2020,2222
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521483,5214838,Nova Crixás,2020,12945
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521486,5214861,Nova Glória,2020,8112
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,521487,5214879,Nova Iguaçu de Goiás,2020,2934
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,521490,5214903,Nova Roma,2020,3236
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521500,5215009,Nova Veneza,2020,10018
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521520,5215207,Novo Brasil,2020,2843
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,521523,5215231,Novo Gama,2020,117703
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521525,5215256,Novo Planalto,2020,4544
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521530,5215306,Orizona,2020,15725
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521540,5215405,Ouro Verde de Goiás,2020,3723
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521550,5215504,Ouvidor,2020,6782
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,521560,5215603,Padre Bernardo,2020,34430
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521565,5215652,Palestina de Goiás,2020,3467
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,521570,5215702,Palmeiras de Goiás,2020,29392
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521580,5215801,Palmelo,2020,2381
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,521590,5215900,Palminópolis,2020,3582
+Região Centro-Oeste,52,GOIAS,GO,52017,Sul,521600,5216007,Panamá,2020,2603
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521630,5216304,Paranaiguara,2020,10140
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,521640,5216403,Paraúna,2020,10980
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,521645,5216452,Perolândia,2020,3143
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521680,5216809,Petrolina de Goiás,2020,10261
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521690,5216908,Pilar de Goiás,2020,2194
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521710,5217104,Piracanjuba,2020,24548
+Região Centro-Oeste,52,GOIAS,GO,52009,Oeste I,521720,5217203,Piranhas,2020,10272
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,521730,5217302,Pirenópolis,2020,25064
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521740,5217401,Pires do Rio,2020,31686
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,521760,5217609,Planaltina,2020,90640
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521770,5217708,Pontalina,2020,17860
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521800,5218003,Porangatu,2020,45633
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521805,5218052,Porteirão,2020,3931
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,521810,5218102,Portelândia,2020,4022
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,521830,5218300,Posse,2020,37414
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,521839,5218391,Professor Jamil,2020,3203
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521850,5218508,Quirinópolis,2020,50701
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521860,5218607,Rialma,2020,10940
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521870,5218706,Rianápolis,2020,4817
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521878,5218789,Rio Quente,2020,4612
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521880,5218805,Rio Verde,2020,241518
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521890,5218904,Rubiataba,2020,19947
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,521900,5219001,Sanclerlândia,2020,7632
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521910,5219100,Santa Bárbara de Goiás,2020,6634
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,521920,5219209,Santa Cruz de Goiás,2020,2819
+Região Centro-Oeste,52,GOIAS,GO,52012,Rio Vermelho,521925,5219258,Santa Fé de Goiás,2020,5523
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521930,5219308,Santa Helena de Goiás,2020,38808
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521935,5219357,Santa Isabel,2020,3815
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,521940,5219407,Santa Rita do Araguaia,2020,8935
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,521945,5219456,Santa Rita do Novo Destino,2020,3355
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521950,5219506,Santa Rosa de Goiás,2020,2252
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,521960,5219605,Santa Tereza de Goiás,2020,3280
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,521970,5219704,Santa Terezinha de Goiás,2020,8562
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,521971,5219712,Santo Antônio da Barra,2020,4854
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521973,5219738,Santo Antônio de Goiás,2020,6440
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,521975,5219753,Santo Antônio do Descoberto,2020,75829
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,521980,5219803,São Domingos,2020,13103
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,521990,5219902,São Francisco de Goiás,2020,6267
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,522000,5220009,São João d'Aliança,2020,14085
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,522005,5220058,São João da Paraúna,2020,1345
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,522010,5220108,São Luís de Montes Belos,2020,34157
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,522015,5220157,São Luiz do Norte,2020,5215
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,522020,5220207,São Miguel do Araguaia,2020,21920
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,522026,5220264,São Miguel do Passa Quatro,2020,4082
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,522028,5220280,São Patrício,2020,2037
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,522040,5220405,São Simão,2020,20985
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,522045,5220454,Senador Canedo,2020,118451
+Região Centro-Oeste,52,GOIAS,GO,52016,Sudoeste II,522050,5220504,Serranópolis,2020,8642
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,522060,5220603,Silvânia,2020,20816
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,522068,5220686,Simolândia,2020,6879
+Região Centro-Oeste,52,GOIAS,GO,52007,Nordeste II,522070,5220702,Sítio d'Abadia,2020,3001
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,522100,5221007,Taquaral de Goiás,2020,3521
+Região Centro-Oeste,52,GOIAS,GO,52006,Nordeste I,522108,5221080,Teresina de Goiás,2020,3498
+Região Centro-Oeste,52,GOIAS,GO,52011,Pirineus,522119,5221197,Terezópolis de Goiás,2020,8186
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,522130,5221304,Três Ranchos,2020,2830
+Região Centro-Oeste,52,GOIAS,GO,52001,Central,522140,5221403,Trindade,2020,129823
+Região Centro-Oeste,52,GOIAS,GO,52008,Norte,522145,5221452,Trombas,2020,3498
+Região Centro-Oeste,52,GOIAS,GO,52010,Oeste II,522150,5221502,Turvânia,2020,4564
+Região Centro-Oeste,52,GOIAS,GO,52015,Sudoeste I,522155,5221551,Turvelândia,2020,5365
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,522157,5221577,Uirapuru,2020,2840
+Região Centro-Oeste,52,GOIAS,GO,52014,Serra da Mesa,522160,5221601,Uruaçu,2020,40840
+Região Centro-Oeste,52,GOIAS,GO,52013,São Patrício I,522170,5221700,Uruana,2020,13818
+Região Centro-Oeste,52,GOIAS,GO,52005,Estrada de Ferro,522180,5221809,Urutaí,2020,3066
+Região Centro-Oeste,52,GOIAS,GO,52004,Entorno Sul,522185,5221858,Valparaíso de Goiás,2020,172135
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,522190,5221908,Varjão,2020,3838
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,522200,5222005,Vianópolis,2020,13977
+Região Centro-Oeste,52,GOIAS,GO,52002,Centro Sul,522205,5222054,Vicentinópolis,2020,8873
+Região Centro-Oeste,52,GOIAS,GO,52003,Entorno Norte,522220,5222203,Vila Boa,2020,6312
+Região Centro-Oeste,52,GOIAS,GO,52018,São Patrício II,522230,5222302,Vila Propício,2020,5882

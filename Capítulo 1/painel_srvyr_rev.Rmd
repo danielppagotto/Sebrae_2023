@@ -1,0 +1,175 @@
+---
+title: "Teste usando o srvyr"
+author: "Daniel Pagotto e Rosimeire Gomes de Jesus"
+date: "2023-11-28"
+output: pdf_document
+---
+
+# Perfil da empreendedora em Goiás
+
+As análises a seguir apresentam os códigos que acessam dados da PNADc para traçar o perfil da empreendedora no estado de Goiás, que estará em um painel.
+
+Para o presente recorte, filtramos os seguintes perfis (VD4007), que, de acordo com a PNADc e estudos prévios, podem se enquadrar como empreendedores:
+
+-   Trabalhador por conta própria:
+-   Empregador
+
+Ademais, avaliamos o perfil dos empreendedores considerando as seguintes variáveis:
+
+| Variável | Descrição                                                    |
+|----------|--------------------------------------------------------------|
+| UF       | Unidade da Federação                                         |
+| VD2007   | Sexo                                                         |
+| V2009    | Idade                                                        |
+| VD4007   | Identificação do perfil ocupacional                          |
+| V1023    | Localização (capital, RM, RIDE, demais municípios do estado) |
+| V4019    | Formalização                                                 |
+| VD3004   | Escolaridade                                                 |
+| VD4010   | Setor de atuação                                             |
+
+## Carregando os pacotes
+
+Acessando os pacotes necessários para as análises.
+
+```{r}
+#| warning: FALSE
+
+library(PNADcIBGE)
+library(survey)
+library(tidyverse)
+library(srvyr)
+```
+
+## Carregando dados
+
+Por meio do pacote `PNADcIBGE`, vamos acessar os dados da PNADc, usando o ano de 2022 como referência, quarto trimestre.
+
+```{r}
+
+pnad_srv <- get_pnadc(year = 2022, quarter = 4)
+
+class(pnad_srv)
+
+```
+
+Transformando o objeto survey.
+
+```{r}
+
+pnad_srvyr <- as_survey(pnad_srv)
+
+class(pnad_srvyr)
+
+```
+
+## Análises
+
+A seguir temos duas análises contendo interações, sendo que a primeira não possui nenhum tratamento sobre as categorias das análises, enquanto a segunda tem tratamentos.
+
+### Análise 1 - sem desagregações
+
+```{r}
+#| warning: FALSE
+
+resultados <- 
+  
+  pnad_srvyr |> 
+  
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  
+  group_by(VD4007, V1023, V4019, VD3004, 
+           VD4010) |> 
+  
+  summarise(contagem = survey_total(),
+            renda_media = survey_mean(VD4016, na.rm = T),
+            idade_media = survey_mean(V2009, na.rm = T))
+
+DT::datatable(resultados)
+
+#writexl::write_xlsx(resultados,"resultados_sem_desagregar.xlsx")
+
+```
+
+### Análise 2 - com desagregações
+
+```{r}
+#| warning: FALSE
+
+teste_srv2 <- pnad_srvyr |> 
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  rename(regiao = V1023, formalizacao = V4019,
+         idade_anos = V2009, educacao = VD3005) |> 
+  
+  mutate(empreendedor = 
+           case_when(
+                      VD4007 == "Empregador" ~ "Empreendedor",
+                      VD4007 == "Conta própria" ~ "Empreendedor"
+                    )) |>
+  
+  mutate(atuacao = case_when(
+                      VD4010 == "Agricultura, pecuária, produção florestal, pesca e aquicultura" ~ "Agricultura",
+                      VD4010 == "Indústria geral" ~ "Indústria",
+                      VD4010 == "Comércio, reparação de veículos automotores e motocicletas" ~ "Comércio",
+                      T ~ "Serviços")) |> 
+  
+  mutate(educacao = case_when(
+                      VD3004 == "Sem instrução e menos de 1 ano de estudo" |
+                      VD3004 == "Fundamental incompleto ou equivalente" |
+                      VD3004 == "Fundamental completo ou equivalente" ~ "Até o ensino fundamental completo",
+                      VD3004 == "Médio incompleto ou equivalente" |
+                      VD3004 == "Médio completo ou equivalente" ~ "Até o ensino médio completo",
+                      VD3004 == "Superior incompleto ou equivalente"|
+                      VD3004 == "Superior completo" ~ "Até o ensino superior completo",
+                      T ~ "Não aplicável")) |> 
+  
+  group_by(empreendedor, regiao, 
+           educacao, atuacao, formalizacao) |> 
+  
+  summarise(contagem = survey_total(),
+            renda_media = survey_mean(VD4016, na.rm = T),
+            idade_media = survey_mean(idade_anos, na.rm = T))
+
+
+```
+
+```{r}
+
+teste <- svytotal(x=~interaction(VD3004,VD4010),
+                  design = pnad_srvyr, na.rm = TRUE)
+
+ftable(teste)
+
+```
+
+Média ponderada
+
+```{r}
+
+media_ponderada <- 
+  teste_srv2 |> 
+  group_by(empreendedor, regiao, educacao, formalizacao, atuacao) |> 
+  summarise(renda = weighted.mean(renda_media, contagem),
+            idade = weighted.mean(idade_media, contagem)) |> 
+  mutate(renda = round(renda, 2),
+         idade = round(idade, 2))
+
+#writexl::write_xlsx(media_ponderada, "sebrae2023_pnadc.xlsx")
+
+  
+```
+
+```{r}
+
+media_ponderada |> 
+  ggplot(aes(x = idade, y = log(renda))) + 
+  geom_point(aes(col = regiao)) + 
+  geom_smooth(method = "lm", se = FALSE) + 
+  facet_grid(~atuacao) + theme_minimal() 
+
+```
