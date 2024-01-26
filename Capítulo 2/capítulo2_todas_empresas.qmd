@@ -19,7 +19,7 @@ A leitura dos dados foi feita em um arquivo separado e pode ser acessado aqui. P
 Carregando os pacotes necessários para as análises.
 
 ```{r}
-#| warning: false
+#| warning:false
 
 library(tidyverse)
 library(readxl)
@@ -230,7 +230,6 @@ nao_me_go <-
   todos_estabelecimentos_go |> 
   left_join(nao_microempresas, by = c("cnpj_basico")) |> 
   left_join(socios, by = c("cnpj_basico"))
-
 
 ```
 

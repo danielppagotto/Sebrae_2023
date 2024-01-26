@@ -33,6 +33,8 @@ Acessando os pacotes necessários para as análises.
 ```{r}
 #| warning: FALSE
 
+options(scipen = 999)
+
 library(PNADcIBGE)
 library(survey)
 library(tidyverse)
@@ -53,7 +55,7 @@ load("~/GitHub/Sebrae_2023/Capítulo 1/dados/dados_pnadc.RData")
 ```{r}
 #| eval: FALSE
 
-pnad_srv <- get_pnadc(year = 2022, quarter = 4)
+pnad_srv <- get_pnadc(year = 2022, quarter = 2)
 
 class(pnad_srv)
 
@@ -142,15 +144,15 @@ teste_srv2 <- pnad_srvyr |>
                       VD3004 == "Superior completo" ~ "Até o ensino superior completo",
                       T ~ "Não aplicável")) |> 
   
-  group_by(empreendedor, regiao, 
+  group_by(empreendedor, regiao, V2010, 
            educacao, atuacao, formalizacao) |> 
   
   summarise(contagem = survey_total(),
-            renda_media = survey_mean(VD4016, na.rm = T),
+            renda_media = survey_mean(VD4017, na.rm = T),
             idade_media = survey_mean(idade_anos, na.rm = T))
 
 
-# writexl::write_xlsx(teste_srv2, "resultados_pnadc1.xlsx")
+# writexl::write_xlsx(teste_srv2, "resultados_pnadc_cor_raca.xlsx")
 
 ```
 
@@ -173,14 +175,11 @@ media_ponderada <-
 
 ```{r}
 
-media_ponderada |> 
-  ggplot(aes(x = idade, y = log(renda))) + 
-  geom_point(aes(col = regiao)) + 
-  geom_smooth(method = "lm", se = FALSE) + 
-  facet_grid(~atuacao) + theme_minimal() 
+teste_srv3 |> 
+  ggplot(aes(x = V2010, y = log(renda_media))) + geom_boxplot() + 
+  theme_minimal() 
 
 ```
-
 
 ```{r}
 
@@ -213,4 +212,97 @@ teste_srv2 <- pnad_srvyr |>
 
 
 ```
+
+
+Testes 
+
+```{r}
+
+teste <- pnad_srvyr[["variables"]]
+
+teste_goias <- 
+  teste |> 
+  filter(UF == "Goiás" ) |> 
+  filter(V2007 == "Mulher") |> 
+  filter(VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") |> 
+  select(VD4016, VD4017, VD4010, V2010, V1023, ID_DOMICILIO,
+         VD4036)
+
+```
+
+Cor raça 
+
+```{r}
+
+teste_srv3 <- pnad_srvyr |> 
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  rename(regiao = V1023, formalizacao = V4019,
+         idade_anos = V2009, educacao = VD3005) |> 
+  
+  mutate(empreendedor = 
+           case_when(
+                      VD4007 == "Empregador" ~ "Empreendedor",
+                      VD4007 == "Conta própria" ~ "Empreendedor"
+                    )) |>
+  
+  mutate(educacao = case_when(
+                      VD3004 == "Sem instrução e menos de 1 ano de estudo" |
+                      VD3004 == "Fundamental incompleto ou equivalente" |
+                      VD3004 == "Fundamental completo ou equivalente" ~ "Até o ensino fundamental completo",
+                      VD3004 == "Médio incompleto ou equivalente" |
+                      VD3004 == "Médio completo ou equivalente" ~ "Até o ensino médio completo",
+                      VD3004 == "Superior incompleto ou equivalente"|
+                      VD3004 == "Superior completo" ~ "Até o ensino superior completo",
+                      T ~ "Não aplicável")) |> 
+  
+  group_by(empreendedor, regiao, V2010, 
+           educacao, formalizacao) |> 
+  
+  summarise(contagem = survey_total(),
+            renda_media = survey_mean(VD4017, na.rm = T),
+            idade_media = survey_mean(idade_anos, na.rm = T))
+
+```
+
+
+Informações sobre negócios
+
+```{r}
+
+teste_srv4 <- pnad_srvyr |> 
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  rename(regiao = V1023) |> 
+  
+  mutate(empreendedor = 
+           case_when(
+                      VD4007 == "Empregador" ~ "Empreendedor",
+                      VD4007 == "Conta própria" ~ "Empreendedor"
+                    )) |>
+  
+  mutate(atuacao = case_when(
+                      VD4010 == "Agricultura, pecuária, produção florestal, pesca e aquicultura" ~ "Agricultura",
+                      VD4010 == "Indústria geral" ~ "Indústria",
+                      VD4010 == "Comércio, reparação de veículos automotores e motocicletas" ~ "Comércio",
+                      T ~ "Serviços")) |> 
+  
+  group_by(empreendedor, regiao, 
+           atuacao, VD4007, V4019, V4020, V4017) |> 
+  
+  summarise(contagem = survey_total()) |> 
+  rename(formalizacao = V4019, 
+         socios = V4017,
+         local = V4020,
+         tipo = VD4007)
+
+writexl::write_xlsx(teste_srv4, "resultados_perfil_empreendimentos.xlsx")
+
+```
+
 

@@ -273,28 +273,30 @@ municipios_serpro <- read_excel("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Munic
 
 municipios_serpro$codigo_arrumado <- as.integer(municipios_serpro$codigo_arrumado)
 
-# tratamento apenas das ME por enquanto 
-
-todos_estabelecimentos_go <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Estabelecimentos/todos_estabelecimentos_go.csv",
-                                   select = c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)) 
-
-todos_estabelecimentos_go <- 
-  todos_estabelecimentos_go %>% 
-  rename(cnpj_basico = V1, cnpj_ordem = V2, 
-         cnpj_dv = V3, matriz = V4, nome_fantasia = V5, 
-         situacao = V6, data_situacao_atual = V7, 
-         data_inicio_atividade = V11, cnae = V12, uf = V20, 
-         municipio = V21)
+### atenção
+# TRATANDO APENAS ME POR ENQUANTO 
+### atenção
 
 
-microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/microempresas.csv", 
-                       select = c(2, 3, 4), encoding = "Latin-1")
+# todos_estabelecimentos_go <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Estabelecimentos/todos_estabelecimentos_go.csv",
+#                                    select = c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)) 
+
+# todos_estabelecimentos_go <- 
+#   todos_estabelecimentos_go %>% 
+#   rename(cnpj_basico = V1, cnpj_ordem = V2, 
+#          cnpj_dv = V3, matriz = V4, nome_fantasia = V5, 
+#          situacao = V6, data_situacao_atual = V7, 
+#          data_inicio_atividade = V11, cnae = V12, uf = V20, 
+#          municipio = V21)
+
+# 
+# microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/microempresas.csv", 
+#                        select = c(2, 3, 4), encoding = "Latin-1")
 
 
-me_todas <- todos_estabelecimentos_go |> 
-                  left_join(microempresas, 
+me_todas <- estabelecimentos_ativos_go |> 
+                  left_join(me, 
                             by = c("cnpj_basico"))
-
 
 #round(colSums(is.na(me_todas)))
 
@@ -340,19 +342,19 @@ dist_me_tempo <- me_tratado |>
 
 #---- Tratamento das Nao-ME --------------
 
-nao_microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/nao_microempresas.csv",
-                           select = c(2, 3, 4))
-
-socios <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Socios/socios.csv")
+# nao_microempresas <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Empresas/nao_microempresas.csv",
+#                            select = c(2, 3, 4))
+# 
+# socios <- fread("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Socios/socios.csv")
 
 nao_me_go <- 
-  todos_estabelecimentos_go |> 
-  left_join(nao_microempresas, by = c("cnpj_basico")) |> 
+  estabelecimentos_ativos_go |> 
+  left_join(nao_me, by = c("cnpj_basico")) |> 
   left_join(socios, by = c("cnpj_basico"))
 
 nao_me_gender <- 
   nao_me_go |> 
-  filter(nat_juridica %in% nao_me) 
+  filter(nat_juridica != "NA") 
 
 # quantas empresas? 
 
@@ -412,7 +414,6 @@ base_completa1 <-
 
 # taxa ------------------------------------------------------------------
 
-
 #pop_total <-  pop_total |> 
 #              mutate(COD_MUN = substr(COD_MUN, 1, 6))
 
@@ -436,6 +437,82 @@ base_completa3 <-
             by = c("cod_IBGE"="cod_municipiodv")) |> 
   select(cod_IBGE, genero, municipio_pad, genero, total, freq, 
          POPULACAO, taxa)
+
+#writexl::write_xlsx(base_completa3, "cap2_taxas.xlsx")
+
+#### Continuar por aqui para ver o gráfico de evolução e para ver a tabela de CNAE
+#load("C:/Users/Lapei_Cigets/Desktop/RFB 09.2023/Resultados_capitulo2.RData")
+## Evolução ao longo do tempo - Estado
+
+dist_me_tempo_estado <- 
+  dist_me_tempo |> 
+  group_by(ano, genero) |> 
+  summarise(n = sum(n)) |> 
+  mutate(ano = as.numeric(ano)) |> 
+  ungroup() |> 
+  mutate(tipo = "ME")
+
+dist_nao_me_tempo_estado <-
+  dist_nao_me_tempo |> 
+  mutate(tipo = "Não ME")
+
+
+dist_estado <- 
+  rbind(dist_me_tempo_estado, 
+      dist_nao_me_tempo_estado)
+
+dist_frequencia <- 
+  dist_estado |> 
+  mutate(ano = as.numeric(ano)) |> 
+  filter(ano > 1980) |> 
+  group_by(ano, genero) |> 
+  summarise(total = sum(n)) |> 
+  ungroup() |> 
+  mutate(freq = prop.table(total), .by = ano) 
+
+dist_frequencia |> 
+  ggplot(aes(x = ano, y = freq, col = genero)) + geom_line() + 
+  geom_label(aes(label = round(freq,2)),
+             size = 2) + theme_minimal()
+ 
+
+# writexl::write_xlsx(dist_frequencia, "cap2_proporcoes_tempo_estado.xlsx")
+  
+# CNAE
+
+cnae_me <- 
+  me_tratado |> 
+  mutate(ano = as.character(data_inicio_atividade)) |> 
+  mutate(ano = substr(ano, 1, 4)) |> 
+  filter(genero != "NA") |> 
+  group_by(municipio, genero, cnae) |> 
+  count() |> 
+  mutate(tipo = "me")
+
+cnae_nao_me <- 
+  nao_me_gender_3 |> 
+  filter(genero != "NA") |> 
+  group_by(municipio, genero, cnae) |> 
+  count() |> 
+  mutate(tipo = "nao_me")
+
+id_cnae <- read_excel("Capítulo 2/dados/cnae.xlsx")
+id_cnae$cod_cnae <- as.integer(id_cnae$cod_cnae)
+
+cnae <- 
+  rbind(cnae_me,
+        cnae_nao_me) |> 
+  group_by(municipio,cnae, genero) |> 
+  summarise(total = sum(n)) |> 
+  left_join(municipios_serpro,
+            by = c("municipio"="codigo_arrumado")) |>
+  left_join(id_cnae, by = c("cnae"="cod_cnae")) |> 
+  filter(genero == "Female")
+
+
+#writexl::write_xlsx(cnae, "cap2_cnae.xlsx")
+
+
 
 #writexl::write_xlsx(base_completa3, "analises_RFB_2023.xlsx")
 
@@ -476,40 +553,6 @@ distribuicao_tempo <- rbind(dist_me_tempo,
 #writexl::write_xlsx(distribuicao_tempo,"distribuicao_anos.xlsx")
 
 #writexl::write_xlsx(base_completa2, "base_completa.xlsx")
-
-
-
-
-
-
-# Arquivo que contem as leituras inicias da base
-
-# arquivos_estab <- c("estab0.ESTABELE","estab1.ESTABELE","estab2.ESTABELE",
-#                     "estab3.ESTABELE","estab4.ESTABELE","estab5.ESTABELE",
-#                     "estab6.ESTABELE","estab7.ESTABELE","estab8.ESTABELE",
-#                     "estab9.ESTABELE")
-
-# leitura_estab <- function(arquivo){
-#   
-#   dados <- fread(arquivo, select=c(1, 2, 3, 4, 5, 
-#                                    6, 7, 11, 12, 
-#                                    20, 21))
-#   
-#   dados <- dados[V6 == 2 & V20 == "GO", ]
-#   
-#   return(dados)
-# }
-# 
-# base <- data.table()
-# 
-# for(i in arquivos_estab){
-#   
-#   
-#   dados_lidos <- leitura_estab(i)
-#   base_estabelecimentos <- rbind(base, dados_lidos)
-#   
-#}
-
 
 
 

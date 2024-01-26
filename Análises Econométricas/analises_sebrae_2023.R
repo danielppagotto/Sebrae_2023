@@ -61,22 +61,22 @@ dados_modelo |>
 
 
 ggplot(dados_modelo) +
-  aes(x = `Contravenções penais`, y = taxa_daiane_dois) +
+  aes(x = `Contravenções penais`, y = 10*taxa_daiane_dois) +
   geom_point(shape = "circle", 
              size = 1.5, colour = "#112446") +
   geom_label(aes(label = nome1)) + 
   geom_smooth(method = "lm", se = FALSE) +
   theme_minimal() + ggtitle("Taxa - 2019") + 
-  facet_wrap(vars(categoria), scales = "free")
+  facet_wrap(vars(categoria))
 
 ggplot(dados_modelo) +
-  aes(x = `Crimes contra a dignidade sexual`, y = taxa_daiane) +
+  aes(x = `Crimes contra a dignidade sexual`, y = 10*taxa_daiane) +
   geom_point(shape = "circle", 
              size = 1.5, colour = "#112446") +
   geom_label(aes(label = nome1)) + 
   geom_smooth(method = "lm", se = FALSE) +
   theme_minimal() + ggtitle("Taxa - 2019") + 
-  facet_wrap(vars(categoria), scales = "free")
+  facet_wrap(vars(categoria))
 
 ggplot(dados_modelo) +
   aes(x = `Crimes contra a pessoa`, y = taxa_daiane) +
@@ -88,13 +88,15 @@ ggplot(dados_modelo) +
   facet_wrap(vars(categoria), scales = "free")
 
 ggplot(dados_modelo) +
-  aes(x = `Crimes contra o patrimônio`, y = taxa_daiane) +
+  aes(x = `Crimes contra o patrimônio`, y = taxa_daiane,
+      fill = categoria) +
   geom_point(shape = "circle", 
              size = 1.5, colour = "#112446") +
   geom_label(aes(label = nome1)) + 
   geom_smooth(method = "lm", se = FALSE) +
-  theme_minimal() + ggtitle("Taxa - 2019") + 
-  facet_wrap(vars(categoria), scales = "free")
+  theme_minimal() + ggtitle("Taxa - 2019") 
++ 
+  facet_wrap(vars(categoria))
 
 ggplot(dados_modelo) +
   aes(x = `Tráfico de drogas`, y = taxa_daiane) +
