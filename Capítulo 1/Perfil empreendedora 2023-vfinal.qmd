@@ -1,0 +1,209 @@
+---
+title: "Perfil_empreendedora_2023"
+format: html
+editor: visual
+---
+
+# Perfil da empreendedora em Goiás
+
+As análises a seguir apresentam os códigos que acessam dados da PNADc para traçar o perfil da empreendedora no estado de Goiás, que estará em um painel.
+
+Para o presente recorte, filtramos os seguintes perfis (VD4007), que, de acordo com a PNADc e estudos prévios, podem se enquadrar como empreendedores:
+
+-   Trabalhador por conta própria:
+-   Empregador
+
+Ademais, avaliamos o perfil dos empreendedores considerando as seguintes variáveis:
+
+| Variável | Descrição                                                    |
+|----------|--------------------------------------------------------------|
+| UF       | Unidade da Federação                                         |
+| VD2007   | Sexo                                                         |
+| V2009    | Idade                                                        |
+| VD4007   | Identificação do perfil ocupacional                          |
+| V1023    | Localização (capital, RM, RIDE, demais municípios do estado) |
+| V4019    | Formalização                                                 |
+| VD3004   | Escolaridade                                                 |
+| VD4010   | Setor de atuação                                             |
+
+## Carregando os pacotes
+
+Acessando os pacotes necessários para as análises.
+
+```{r}
+#| warning: FALSE
+
+options(scipen = 999)
+
+library(PNADcIBGE)
+library(survey)
+library(tidyverse)
+library(srvyr)
+```
+
+## Carregando dados
+
+Por meio do pacote `PNADcIBGE`, vamos acessar os dados da PNADc, usando o ano de 2022 como referência, quarto trimestre.
+
+```{r}
+#| echo: FALSE
+
+load("~/GitHub/Sebrae_2023/Capítulo 1/dados/dados_pnadc.RData")
+
+```
+
+```{r}
+#| eval: FALSE
+
+pnad_srv <- get_pnadc(year = 2022, quarter = 2)
+
+class(pnad_srv)
+
+```
+
+Transformando o objeto survey.
+
+```{r}
+
+pnad_srvyr <- as_survey(pnad_srv)
+
+class(pnad_srvyr)
+
+```
+
+## Análises
+
+A seguir temos duas análises contendo interações, sendo que a primeira não possui nenhum tratamento sobre as categorias das análises, enquanto a segunda tem tratamentos.
+
+### Análise 1 - sem desagregações
+
+```{r}
+#| warning: FALSE
+
+resultados <- 
+  
+  pnad_srvyr |> 
+  
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  
+  group_by(VD4007, V1023, V4019, VD3004, 
+           VD4010) |> 
+  
+  summarise(contagem = survey_total(),
+            renda_media = survey_mean(VD4016, na.rm = T),
+            idade_media = survey_mean(V2009, na.rm = T)) |> 
+  
+  select(-renda_media_se,-idade_media_se,
+         -contagem_se) |> 
+  
+  mutate(contagem = round(contagem, 2),
+         renda_media = round(renda_media, 2),
+         idade_media = round(idade_media, 2))
+
+DT::datatable(resultados)
+
+#writexl::write_xlsx(resultados,"resultados_sem_desagregar.xlsx")
+
+```
+
+### Análise 2 - com desagregações
+
+Análise com as desagregações
+
+```{r}
+#| warning: FALSE
+
+teste_srv2 <- pnad_srvyr |> 
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  rename(regiao = V1023, formalizacao = V4019,
+         idade_anos = V2009, educacao = VD3005) |> 
+  
+  mutate(empreendedor = 
+           case_when(
+                      VD4007 == "Empregador" ~ "Empreendedor",
+                      VD4007 == "Conta própria" ~ "Empreendedor"
+                    )) |>
+  
+  mutate(atuacao = case_when(
+                      VD4010 == "Agricultura, pecuária, produção florestal, pesca e aquicultura" ~ "Agropecuária",
+                      VD4010 == "Indústria geral" ~ "Indústria",
+                      VD4010 == "Comércio, reparação de veículos automotores e motocicletas" ~ "Comércio",
+                      T ~ "Serviços")) |> 
+  
+  mutate(educacao = case_when(
+                      VD3004 == "Sem instrução e menos de 1 ano de estudo" |
+                      VD3004 == "Fundamental incompleto ou equivalente" |
+                      VD3004 == "Fundamental completo ou equivalente" ~ "Sem instrução a fundamental completo",
+                      VD3004 == "Médio incompleto ou equivalente" |
+                      VD3004 == "Médio completo ou equivalente" ~ "Ensino médio incompleto a média completo",
+                      VD3004 == "Superior incompleto ou equivalente"|
+                      VD3004 == "Superior completo" ~ "Ensino superior incompleto e superior completo",
+                      T ~ "Não aplicável")) |> 
+  mutate(regiao = case_when(
+                      regiao == "Capital" ~ "Capital",
+                      regiao == "Resto da RM (Região Metropolitana, excluindo a capital)" ~ "Região Metropolitana",
+                      T ~ "Demais municípios"
+    
+  )) |> 
+  
+  group_by(empreendedor, regiao, V2010, 
+           educacao, atuacao, formalizacao) |> 
+  
+  summarise(contagem = survey_total(),
+            renda_media = survey_mean(VD4017, na.rm = T),
+            idade_media = survey_mean(idade_anos, na.rm = T)) |> 
+  rename(raca_cor = V2010, setor = atuacao)
+
+# writexl::write_xlsx(teste_srv2, "resultados_pnadc_cor_raca_270224.xlsx")
+
+```
+
+
+Informações sobre negócios
+
+```{r}
+
+teste_srv4 <- pnad_srvyr |> 
+  filter(UF == "Goiás" & V2007 == "Mulher" &
+        (VD4007 == "Empregador" | 
+         VD4007 == "Conta própria") &
+         VD2006 != "14 a 19 anos") |> 
+  rename(regiao = V1023) |> 
+  
+  mutate(empreendedor = 
+           case_when(
+                      VD4007 == "Empregador" ~ "Empreendedor",
+                      VD4007 == "Conta própria" ~ "Empreendedor"
+                    )) |>
+ 
+  mutate(atuacao = case_when(
+                      VD4010 == "Agricultura, pecuária, produção florestal, pesca e aquicultura" ~ "Agropecuária",
+                      VD4010 == "Indústria geral" ~ "Indústria",
+                      VD4010 == "Comércio, reparação de veículos automotores e motocicletas" ~ "Comércio",
+                      T ~ "Serviços")) |> 
+  
+  mutate(regiao = case_when(
+                      regiao == "Capital" ~ "Capital",
+                      regiao == "Resto da RM (Região Metropolitana, excluindo a capital)" ~ "Região Metropolitana",
+                      T ~ "Demais municípios"
+    
+  )) |> 
+  
+  group_by(empreendedor, regiao, 
+           atuacao, VD4007, V4019, V4020, V4017) |> 
+  
+  summarise(contagem = survey_total()) |> 
+  rename(formalizacao = V4019, 
+         socios = V4017,
+         local = V4020,
+         tipo = VD4007)
+
+#writexl::write_xlsx(teste_srv4, "resultados_perfil_empreendimentos270224.xlsx")
+
+```

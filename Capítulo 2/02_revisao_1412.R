@@ -349,8 +349,8 @@ dist_me_tempo <- me_tratado |>
 
 nao_me_go <- 
   estabelecimentos_ativos_go |> 
-  left_join(nao_me, by = c("cnpj_basico")) |> 
-  left_join(socios, by = c("cnpj_basico"))
+    left_join(nao_me, by = c("cnpj_basico")) |> 
+    left_join(socios, by = c("cnpj_basico"))
 
 nao_me_gender <- 
   nao_me_go |> 
@@ -496,7 +496,7 @@ cnae_nao_me <-
   count() |> 
   mutate(tipo = "nao_me")
 
-id_cnae <- read_excel("Capítulo 2/dados/cnae.xlsx")
+id_cnae <- read_excel("~/GitHub/Sebrae_2023/Capítulo 2/dados/cnae.xlsx")
 id_cnae$cod_cnae <- as.integer(id_cnae$cod_cnae)
 
 cnae <- 
@@ -506,11 +506,26 @@ cnae <-
   summarise(total = sum(n)) |> 
   left_join(municipios_serpro,
             by = c("municipio"="codigo_arrumado")) |>
-  left_join(id_cnae, by = c("cnae"="cod_cnae")) |> 
-  filter(genero == "Female")
+  left_join(id_cnae, by = c("cnae"="cod_cnae")) 
+
+caldazinha <- cnae |> 
+                filter(Municipio == "CALDAZINHA")
+
+goiania <- cnae |> 
+              filter(Municipio == "GOIANIA")
+
+# |> 
+#  filter(genero == "Female")
+
+freq_cnae <- 
+  cnae %>%
+  group_by(genero,nm_divisao, nm_cnae) %>%
+  summarise(total = sum(total)) |> 
+  ungroup() |> 
+  mutate(freq = prop.table(total), .by = nm_cnae)
 
 
-#writexl::write_xlsx(cnae, "cap2_cnae.xlsx")
+#writexl::write_xlsx(freq_cnae, "cap2_cnae02_02_rev_div.xlsx")
 
 
 
